@@ -1,0 +1,5 @@
+gem 'minitest'
+require './lib/game_board'
+require 'minitest/autorun'
+require 'minitest/pride'
+require 'pry'
