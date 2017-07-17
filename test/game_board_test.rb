@@ -2,6 +2,8 @@ gem 'minitest'
 require './lib/game_board'
 require 'minitest/autorun'
 require 'minitest/pride'
+require './lib/two_unit_ship'
+require './lib/three_unit_ship'
 require 'pry'
 
 class GameBoardTest < Minitest::Test
@@ -97,7 +99,17 @@ class GameBoardTest < Minitest::Test
     @board.place_little_ship("C2", "D2")
     assert_equal true, @board.valid_little_ship_coordinates?("C2", "D2")
 
+    @board.place_little_ship("D2", "D3")
+    assert_equal true, @board.valid_little_ship_coordinates?("D2", "D3")
+
   end
+
+
+def test_a_little_ship_is_made
+
+assert_instance_of TwoUnitShip, @board.make_little_ship("D2", "D3")
+
+end
 
   # def test_place_big_ship
   #   skip

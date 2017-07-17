@@ -103,15 +103,14 @@ end #no return, this just changes the values of the keys in the hash
     end
   end
 
-def make_a_little_ship(coordinate1, coordinate2)
-  validity = valid_coordinates?(coordinate1, coordinate2)
+def make_little_ship(coordinate1, coordinate2)
+  validity = valid_little_ship_coordinates?(coordinate1, coordinate2)
   if validity == true
-    little_ship = TwoUnitShip.New(coordinate1, coordinate2)
-     placed_ships << little_ship
-    print "Your ship has been placed."
-  else
+    little_ship = TwoUnitShip.new(coordinate1, coordinate2)
   end
 end
+
+
 #if both vertical and horizontal are valid, create the ship object.
 
 
