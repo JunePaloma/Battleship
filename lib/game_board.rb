@@ -69,20 +69,33 @@ end #no return, this just changes the values of the keys in the hash
   end
 
 
-  def support_for_horizontal_validation
+  def little_ship_continuous?
     ship = make_array_of_occupied_spaces
     board = make_array_of_all_spaces
-    board.index(ship[1]) - board.index(ship[0])
+    if board.index(ship[1]) - board.index(ship[0]) != 1
+      return false
+    else
+      return true
+    end
   end
 
 
-  def little_ship_horizontal_valid?
-    check_coordinates = support_for_horizontal_validation
-    ship = make_array_of_occupied_spaces
-    if check_coordinates != 1
+
+  def little_ship_runs_off_board?(coordinate1, coordinate2)
+    board = make_array_of_all_spaces
+    if board.index(coordinate1) == 3 || board.index(coordinate1) == 7 ||board.index(coordinate1) == 15
+      return true
+    else
       return false
     end
   end
+
+  def valid_coordinates?
+    continuous = little_ship_continuous?
+    on_board = little_ship_runs_off_board?(coordinate1, coordinate2)
+    vertical = little_ship_vertical_valid?
+  end
+
 #if both vertical and horizontal are valid, create the ship object.
 
 
@@ -97,22 +110,22 @@ end #no return, this just changes the values of the keys in the hash
       #   print "One or more of those spaces is already occupied; please enter new coordinates."
       #
 
-  def human_places_big_ship(coordinate1, coordinate2, coordinate3)
-    empty.find do |coordinate|
-      if coordinate1 == coordinate
-        boardhash[coordinate1] = "Occupied"
-      elsif coordinate2 == coordinate
-        boardhash[coordinate2] = "Occupied"
-      elsif coordinate3 == coordinate
-        boardhash[coordinate3] = "Occupied"
-        big_ship = ThreeUnitShip.New(coordinate1, coordinate2, coordinate3)
-        placed_ships << little_ship
-        print "Your ship has been placed."
-      else
-        print "You've already placed a ship in one or more of those spaces; please enter new coordinates."
-      end
-    end
-  end
+  # def human_places_big_ship(coordinate1, coordinate2, coordinate3)
+  #   empty.find do |coordinate|
+  #     if coordinate1 == coordinate
+  #       boardhash[coordinate1] = "Occupied"
+  #     elsif coordinate2 == coordinate
+  #       boardhash[coordinate2] = "Occupied"
+  #     elsif coordinate3 == coordinate
+  #       boardhash[coordinate3] = "Occupied"
+  #       big_ship = ThreeUnitShip.New(coordinate1, coordinate2, coordinate3)
+  #       placed_ships << little_ship
+  #       print "Your ship has been placed."
+  #     else
+  #       print "You've already placed a ship in one or more of those spaces; please enter new coordinates."
+  #     end
+  #   end
+  # end
 
 
 
