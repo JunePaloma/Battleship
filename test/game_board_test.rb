@@ -28,33 +28,38 @@ class GameBoardTest < Minitest::Test
   #   assert_equal false, @board.place_little_ship("A1", "B1")
   # end
 
-  def test_horizontal_little_ship_placement_is_legal
+  def test_vertical_little_ship_placement_is_legal
 
       @board.place_little_ship("A1", "B1")
-      assert_equal true, @board.vertical_valid?
+      assert_equal true, @board.little_ship_vertical_valid?
 
       @board.place_little_ship("A1", "A4")
-      assert_equal false, @board.vertical_valid?
+      assert_equal false, @board.little_ship_vertical_valid?
   end
 
-  def test_vertical_little_ship_placement_is_legal
-    skip
+  def test_support_for_horizontal_validation
+
+    @board.place_little_ship("B1", "B2")
+    assert_equal 1, @board.support_for_horizontal_validation
+
   end
 
-  def test_place_little_ship
-    skip
-    @board.human_places_little_ship("A1", "A2")
-    assert_equal [little_ship], @board.placed_ships
-  end
 
-  def test_place_big_ship
-    skip
-    @board.human_places_big_ship("A1", "A2", "A3")
-    assert_equal [big_ship], @board.placed_ships
-  end
+  # def test_horizontal_little_ship_placement_is_legal
+  #   skip
+  #   @board.place_little_ship()
+  #   assert_equal true,
+  # end
 
-  def test_coordinates_consecutive
-skip
-  end
 
+
+  # def test_place_big_ship
+  #   skip
+  #   @board.human_places_big_ship("A1", "A2", "A3")
+  #   assert_equal [big_ship], @board.placed_ships
+  # end
+  #
+  # def test_coordinates_consecutive
+  #   skip
+  # end
 end

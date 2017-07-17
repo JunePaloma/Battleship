@@ -58,10 +58,10 @@ end #no return, this just changes the values of the keys in the hash
   end
 
 
-  def vertical_valid?
-    get_ship = make_array_of_occupied_spaces
-    get_board = make_array_of_all_spaces
-    if get_board.index(get_ship[1]) - get_board.index(get_ship[0]) == 4
+  def little_ship_vertical_valid?
+    ship = make_array_of_occupied_spaces
+    board = make_array_of_all_spaces
+    if board.index(ship[1]) - board.index(ship[0]) == 4
       return true
     else
       return false
@@ -69,13 +69,26 @@ end #no return, this just changes the values of the keys in the hash
   end
 
 
+  def support_for_horizontal_validation
+    ship = make_array_of_occupied_spaces
+    board = make_array_of_all_spaces
+    board.index(ship[1]) - board.index(ship[0])
+  end
+
+
+
+
+  def little_ship_horizontal_valid?
+
+    check_coordinates = support_for_horizontal_validation
+    binding.pry
+  end
 #if both vertical and horizontal are valid, create the ship object.
 
 
 
 
-  def validate_horizonatal_placement_small_ship
-  end
+
       #   if valid?
       #   little_ship = TwoUnitShip.New(coordinate1, coordinate2)
       #   placed_ships << little_ship
