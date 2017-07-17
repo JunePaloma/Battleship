@@ -27,11 +27,19 @@ def place_little_ship(coordinate1, coordinate2)
       @boardhash[coordinate2] = "Occupied"
     end
   end
-end
+end #no return, this just changes the values of the keys in the hash
 
-   def make_array_of_empty_spaces
+  def make_array_of_all_spaces
+    board_array = []
+    @boardhash.keys.each do |coordinate|
+      board_array << coordinate
+      end
+    board_array
+  end
+
+  def make_array_of_empty_spaces
     empty = []
-    boardhash.keys.each do |coordinate|
+    @boardhash.keys.each do |coordinate|
       if boardhash[coordinate] == "Open"
         empty << coordinate
       end
@@ -41,7 +49,7 @@ end
 
   def make_array_of_occupied_spaces
     occupied = []
-    boardhash.keys.each do |coordinate|
+    @boardhash.keys.each do |coordinate|
       if boardhash[coordinate] == "Occupied"
         occupied << coordinate
       end
@@ -50,13 +58,21 @@ end
   end
 
 
-
-
-
-
-  def validate_vertical_placement_small_ship(coordinate1, coordinate2)
-
+  def vertical_valid?
+    get_ship = make_array_of_occupied_spaces
+    get_board = make_array_of_all_spaces
+    if get_board.index(get_ship[1]) - get_board.index(get_ship[0]) == 4
+      return true
+    else
+      return false
+    end
   end
+
+
+#if both vertical and horizontal are valid, create the ship object.
+
+
+
 
   def validate_horizonatal_placement_small_ship
   end

@@ -11,8 +11,7 @@ class TwoUnitShipTest < Minitest::Test
       assert_instance_of little_ship, TwoUnitShip.New("B1", "C1")
     end
 
-    def test_coordinates_consecutives
-    end
+
 
     def test_it_can_take_a_hit
     end

@@ -29,12 +29,12 @@ class GameBoardTest < Minitest::Test
   # end
 
   def test_horizontal_little_ship_placement_is_legal
-    skip
-      @board.place_little_ship("A1", "A2")
-      assert_equal true, @board.validate_vertical_placement_small_ship("A1", "A2")
+
+      @board.place_little_ship("A1", "B1")
+      assert_equal true, @board.vertical_valid?
 
       @board.place_little_ship("A1", "A4")
-      asser_equal false, @board.validate_vertical_placement_small_ship("A1", "A4")
+      assert_equal false, @board.vertical_valid?
   end
 
   def test_vertical_little_ship_placement_is_legal
