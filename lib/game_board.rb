@@ -76,12 +76,12 @@ end #no return, this just changes the values of the keys in the hash
   end
 
 
-
-
   def little_ship_horizontal_valid?
-
     check_coordinates = support_for_horizontal_validation
-    binding.pry
+    ship = make_array_of_occupied_spaces
+    if check_coordinates != 1
+      return false
+    end
   end
 #if both vertical and horizontal are valid, create the ship object.
 
