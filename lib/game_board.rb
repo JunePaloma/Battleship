@@ -59,7 +59,7 @@ end #no return, this just changes the values of the keys in the hash
 
 
   def little_ship_vertical_valid?(coordinate1, coordinate2)
-    ship = make_array_of_occupied_spaces
+  #  ship = make_array_of_occupied_spaces
     board = make_array_of_all_spaces
     if board.index(coordinate2) - board.index(coordinate1) == 4
       return true
@@ -70,7 +70,6 @@ end #no return, this just changes the values of the keys in the hash
 
 
   def little_ship_continuous?(coordinate1, coordinate2)
-    ship = make_array_of_occupied_spaces
     board = make_array_of_all_spaces
     if board.index(coordinate2) - board.index(coordinate1) != 1
       return false
@@ -90,12 +89,12 @@ end #no return, this just changes the values of the keys in the hash
     end
   end
 
-  def valid_coordinates?(coordinate1, coordinate2)
+  def valid_little_ship_coordinates?(coordinate1, coordinate2)
     continuous = little_ship_continuous?(coordinate1, coordinate2)
-    on_board = little_ship_runs_off_board?(coordinate1, coordinate2)
+    off_board = little_ship_runs_off_board?(coordinate1, coordinate2)
     vertical = little_ship_vertical_valid?(coordinate1, coordinate2)
 
-    if continuous == true && on_board == true
+    if continuous == true && off_board == false
       return true
     elsif vertical == true
       return true
@@ -104,6 +103,15 @@ end #no return, this just changes the values of the keys in the hash
     end
   end
 
+def make_a_little_ship(coordinate1, coordinate2)
+  validity = valid_coordinates?(coordinate1, coordinate2)
+  if validity == true
+    little_ship = TwoUnitShip.New(coordinate1, coordinate2)
+     placed_ships << little_ship
+    print "Your ship has been placed."
+  else
+  end
+end
 #if both vertical and horizontal are valid, create the ship object.
 
 

@@ -49,10 +49,16 @@ class GameBoardTest < Minitest::Test
   # end
 
 
-  def test_discontinuous_horizontal_little_ship_placement_is_illegal
+  def test_if_ship_is_continuous
 
     @board.place_little_ship("B1", "B4")
     assert_equal false, @board.little_ship_continuous?("B1", "B4")
+
+    @board.place_little_ship("D1", "A1")
+    assert_equal false, @board.little_ship_continuous?("D1", "A1")
+
+    @board.place_little_ship("B4", "B1")
+    assert_equal false, @board.little_ship_continuous?("B4", "B1")
 
     @board.place_little_ship("A2", "D4")
     assert_equal false, @board.little_ship_continuous?("A2", "D4")
@@ -66,14 +72,31 @@ class GameBoardTest < Minitest::Test
     @board.place_little_ship("B4", "B1")
     assert_equal true, @board.little_ship_runs_off_board?("B4", "B1")
 
-    @board.place_little_ship("B4", "B1")
-    assert_equal false, @board.little_ship_runs_off_board?("B2", "B3")
+    @board.place_little_ship("A4", "B1")
+    assert_equal true, @board.little_ship_runs_off_board?("A4", "B1")
+
+    @board.place_little_ship("B1", "B2")
+    assert_equal false, @board.little_ship_runs_off_board?("B1", "B2")
 
   end
 
   def test_little_ship_placement_is_valid
+
+    @board.place_little_ship("A4", "B1")
+    assert_equal false, @board.valid_little_ship_coordinates?("A4", "B1")
+
     @board.place_little_ship("B4", "B1")
-    assert_equal false, @board.valid_coordinates?("B4", "B1")
+    assert_equal false, @board.valid_little_ship_coordinates?("B4", "B1")
+
+    @board.place_little_ship("A1", "B1")
+    assert_equal true, @board.valid_little_ship_coordinates?("A1", "B1")
+
+    @board.place_little_ship("D1", "A1")
+    assert_equal false, @board.valid_little_ship_coordinates?("D1", "A1")
+
+    @board.place_little_ship("C2", "D2")
+    assert_equal true, @board.valid_little_ship_coordinates?("C2", "D2")
+
   end
 
   # def test_place_big_ship
