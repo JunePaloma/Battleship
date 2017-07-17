@@ -1,47 +1,65 @@
+require './lib/three_unit_ship'
+require './lib/two_unit_ship'
 class GameBoard
-  attr_accessor :boardhash
+  attr_accessor :boardhash,
+                :placed_ships
+
 
   def initialize
     @boardhash = {"A1"=>"Open", "A2"=>"Open", "A3"=>"Open", "A4"=>"Open",
       "B1"=>"Open", "B2"=>"Open", "B3"=>"Open", "B4"=>"Open",
       "C1"=>"Open", "C2"=>"Open", "C3"=>"Open", "C4"=>"Open",
       "D1"=>"Open", "D2"=>"Open", "D3"=>"Open","D4"=>"Open"}
+    @placed_ships = []
+    @empty = []
   end
 
 # to reassign value: boardhash[key] = "Occupied"
 
-  def empty?
-    boardhash.keys.each do |key|
-        if boardhash[key] == "Open"
-        true
+  def make_array_of_empty_spaces
+    boardhash.keys.each do |coordinate|
+        if boardhash[coordinate] == "Open"
+          empty << coordinate
         end
     end
   end
 
-  def place_ship(coordinate1, coordinate2) #need the player class to be able to change this.
-    if boardhash[coordinate1] == "Open" && boardhash[coordinate2] == "Open"
-     boardhash[coordinate1] = "Occupied"
-     boardhash[coordinate2] = "Occupied"
-     print "Your ship has been placed"
-
-    elsif boardhash[corrdinate1] == "Occupied" && boardhash[coordinate2] == "Occupied"
-    print "The first coordinate is occupied, please choose a differnt one."
-
-    elsif boardhash[coordinate1] == "Open" && boardhash[coordinate2] == "Occupied"
-    print "The second coordinate is occupied, please choose a differnt one."
+  def place_little_ship(coordinate, coordinate2)
+    empty.find do |coordinate|
+      if coordinate1 == coordinate
+      boardhash[coordinate1] = "Occupied"
+    elsif coordinate2 == coordinate
+        boardhash[coordinate2] = "Occupied"
+     little_ship = TwoUnitShip.New(coordinate1, coordinate2)
+     placed_ships << little_ship
+     print "Your ship has been placed."
 
     else
-    print "The coordinates are occpied, please choose again"
+     print "One or more of those spaces is already occupied; please enter new coordinates."
     end
   end
 
-def hit_ship(coordinate)
-  if boardhash[coordinate] == "Occupied"
-   boardhash[coordinate] = "Hit"
-   print "You hit the ship!"
-  else
-  print "You did not hit the ship."
+  def human_places_big_ship(coordinate1, coordinate2, coordinate3)
+    empty.find do |coordinate|
+      if coordinate1 == coordinate
+        boardhash[coordinate1] = "Occupied"
+      elsif coordinate2 == coordinate
+        boardhash[coordinate2] = "Occupied"
+      elsif coordinate3 == coordinate
+        boardhash[coordinate3] = "Occupied"
+        big_ship = ThreeUnitShip.New(coordinate1, coordinate2, coordinate3)
+        placed_ships << little_ship
+        print "Your ship has been placed."
+      else
+        print "You've already placed a ship in one or more of those spaces; please enter new coordinates."
+      end
+    end
   end
-end
+
+
+  def fire_at_ship(coordinate)
+  hit.two_unit_ship(coordinate)
+  hit.three_unit_ship(coordinate)
+  end
 
 end
