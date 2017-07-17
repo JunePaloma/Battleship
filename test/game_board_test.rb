@@ -71,6 +71,11 @@ class GameBoardTest < Minitest::Test
 
   end
 
+  def test_little_ship_placement_is_valid
+    @board.place_little_ship("B4", "B1")
+    assert_equal false, @board.valid_coordinates?("B4", "B1")
+  end
+
   # def test_place_big_ship
   #   skip
   #   @board.human_places_big_ship("A1", "A2", "A3")

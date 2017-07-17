@@ -90,10 +90,18 @@ end #no return, this just changes the values of the keys in the hash
     end
   end
 
-  def valid_coordinates?
+  def valid_coordinates?(coordinate1, coordinate2)
     continuous = little_ship_continuous?
     on_board = little_ship_runs_off_board?(coordinate1, coordinate2)
     vertical = little_ship_vertical_valid?
+
+    if continuous == true && on_board == true
+      return true
+    elsif vertical == true
+      return true
+    else
+      return false
+    end
   end
 
 #if both vertical and horizontal are valid, create the ship object.
