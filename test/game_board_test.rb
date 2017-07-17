@@ -18,9 +18,9 @@ class GameBoardTest < Minitest::Test
   end
 
   def test_board_spaces_can_be_occupied
-    skip
+
     @board.place_little_ship("A1", "A2")
-    assert_equal ["A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"], @board.make_array_of_empty_spaces
+    assert_equal ["A1", "A2"], @board.occupied
   end
 
   def test_place_little_ship

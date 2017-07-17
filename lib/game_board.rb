@@ -2,7 +2,7 @@ require './lib/three_unit_ship'
 require './lib/two_unit_ship'
 class GameBoard
   attr_accessor :boardhash,
-                :placed_ships
+                :occupied
 
 
   def initialize
@@ -12,11 +12,12 @@ class GameBoard
       "D1"=>"Open", "D2"=>"Open", "D3"=>"Open","D4"=>"Open"}
     @placed_ships = []
     @empty = []
+    @occupied = []
   end
 
 # to reassign value: boardhash[key] = "Occupied"
 
-  def make_array_of_empty_spaces
+   def make_array_of_empty_spaces
     boardhash.keys.each do |coordinate|
       if boardhash[coordinate] == "Open"
         @empty << coordinate
@@ -24,21 +25,32 @@ class GameBoard
     end
   end
 
+  def make_array_of_occupied_spaces(coordinate1, coordinate2)
+  boardhash.keys.each do |coordinate|
+      if boardhash[coordinate] == "Occupied"
+        @occupied << coordinate
+      end
+    end
+  end
 
   def place_little_ship(coordinate1, coordinate2)
-    empty.find do |coordinate|
-      if coordinate1 == coordinate
+    @empty.find do |coordinate|
+      if coordinate1 == coordinate && coordinate == "Open"
       boardhash[coordinate1] = "Occupied"
-      elsif coordinate2 == coordinate
+    elsif coordinate2 == coordinate && coordinate == "Open"
         boardhash[coordinate2] = "Occupied"
       end
     end
-    validate(coordinate1, coordinate2)
-end
+    @occupied << coordinate1
+    @occupied << coordinate2
+  end
 
-def validate(coordinate1, coordinate2, coordinate3 = nil)
-  #array of empy spaces should now be missing the occupied spaces
-end
+  def validate_vertical_placement_small_ship(coordinate1, coordinate2)
+
+  end
+
+  def validate_horizonatal_placement_small_ship
+  end
       #   if valid?
       #   little_ship = TwoUnitShip.New(coordinate1, coordinate2)
       #   placed_ships << little_ship
