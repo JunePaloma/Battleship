@@ -58,10 +58,10 @@ end #no return, this just changes the values of the keys in the hash
   end
 
 
-  def little_ship_vertical_valid?
+  def little_ship_vertical_valid?(coordinate1, coordinate2)
     ship = make_array_of_occupied_spaces
     board = make_array_of_all_spaces
-    if board.index(ship[1]) - board.index(ship[0]) == 4
+    if board.index(coordinate2) - board.index(coordinate1) == 4
       return true
     else
       return false
@@ -69,10 +69,10 @@ end #no return, this just changes the values of the keys in the hash
   end
 
 
-  def little_ship_continuous?
+  def little_ship_continuous?(coordinate1, coordinate2)
     ship = make_array_of_occupied_spaces
     board = make_array_of_all_spaces
-    if board.index(ship[1]) - board.index(ship[0]) != 1
+    if board.index(coordinate2) - board.index(coordinate1) != 1
       return false
     else
       return true
@@ -91,9 +91,9 @@ end #no return, this just changes the values of the keys in the hash
   end
 
   def valid_coordinates?(coordinate1, coordinate2)
-    continuous = little_ship_continuous?
+    continuous = little_ship_continuous?(coordinate1, coordinate2)
     on_board = little_ship_runs_off_board?(coordinate1, coordinate2)
-    vertical = little_ship_vertical_valid?
+    vertical = little_ship_vertical_valid?(coordinate1, coordinate2)
 
     if continuous == true && on_board == true
       return true

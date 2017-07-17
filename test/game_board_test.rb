@@ -31,16 +31,16 @@ class GameBoardTest < Minitest::Test
   def test_vertical_little_ship_placement_is_legal
 
       @board.place_little_ship("A1", "B1")
-      assert_equal true, @board.little_ship_vertical_valid?
+      assert_equal true, @board.little_ship_vertical_valid?("A1", "B1")
 
       @board.place_little_ship("A1", "A4")
-      assert_equal false, @board.little_ship_vertical_valid?
+      assert_equal false, @board.little_ship_vertical_valid?("A1", "A4")
 
       @board.place_little_ship("A1", "D4")
-      assert_equal false, @board.little_ship_vertical_valid?
+      assert_equal false, @board.little_ship_vertical_valid?("A1", "D4")
 
       @board.place_little_ship("A1", "B2")
-      assert_equal false, @board.little_ship_vertical_valid?
+      assert_equal false, @board.little_ship_vertical_valid?("A1", "B2")
   end
 
   # def test_support_for_horizontal_validation
@@ -52,13 +52,13 @@ class GameBoardTest < Minitest::Test
   def test_discontinuous_horizontal_little_ship_placement_is_illegal
 
     @board.place_little_ship("B1", "B4")
-    assert_equal false, @board.little_ship_continuous?
+    assert_equal false, @board.little_ship_continuous?("B1", "B4")
 
     @board.place_little_ship("A2", "D4")
-    assert_equal false, @board.little_ship_continuous?
+    assert_equal false, @board.little_ship_continuous?("A2", "D4")
 
     @board.place_little_ship("A2", "A3")
-    assert_equal true, @board.little_ship_continuous?
+    assert_equal true, @board.little_ship_continuous?("A2", "A3")
 
   end
 
