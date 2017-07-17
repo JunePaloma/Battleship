@@ -19,23 +19,26 @@ class GameBoard
   def make_array_of_empty_spaces
     boardhash.keys.each do |coordinate|
         if boardhash[coordinate] == "Open"
-          empty << coordinate
+          @empty << coordinate
         end
     end
+  end
+
+  def check_spaces_are_consecutive(coordinate1, coordinate2, coordinate3 = nil)
   end
 
   def place_little_ship(coordinate, coordinate2)
     empty.find do |coordinate|
       if coordinate1 == coordinate
       boardhash[coordinate1] = "Occupied"
-    elsif coordinate2 == coordinate
+      elsif coordinate2 == coordinate
         boardhash[coordinate2] = "Occupied"
-     little_ship = TwoUnitShip.New(coordinate1, coordinate2)
-     placed_ships << little_ship
-     print "Your ship has been placed."
-
-    else
-     print "One or more of those spaces is already occupied; please enter new coordinates."
+        little_ship = TwoUnitShip.New(coordinate1, coordinate2)
+        placed_ships << little_ship
+        print "Your ship has been placed."
+      else
+        print "One or more of those spaces is already occupied; please enter new coordinates."
+      end
     end
   end
 
