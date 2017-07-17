@@ -18,29 +18,34 @@ class GameBoard
 
   def make_array_of_empty_spaces
     boardhash.keys.each do |coordinate|
-        if boardhash[coordinate] == "Open"
-          @empty << coordinate
-        end
+      if boardhash[coordinate] == "Open"
+        @empty << coordinate
+      end
     end
   end
 
-  def check_spaces_are_consecutive(coordinate1, coordinate2, coordinate3 = nil)
-  end
 
-  def place_little_ship(coordinate, coordinate2)
+  def place_little_ship(coordinate1, coordinate2)
     empty.find do |coordinate|
       if coordinate1 == coordinate
       boardhash[coordinate1] = "Occupied"
       elsif coordinate2 == coordinate
         boardhash[coordinate2] = "Occupied"
-        little_ship = TwoUnitShip.New(coordinate1, coordinate2)
-        placed_ships << little_ship
-        print "Your ship has been placed."
-      else
-        print "One or more of those spaces is already occupied; please enter new coordinates."
       end
     end
-  end
+    validate(coordinate1, coordinate2)
+end
+
+def validate(coordinate1, coordinate2, coordinate3 = nil)
+  #array of empy spaces should now be missing the occupied spaces
+end
+      #   if valid?
+      #   little_ship = TwoUnitShip.New(coordinate1, coordinate2)
+      #   placed_ships << little_ship
+      #   print "Your ship has been placed."
+      # else
+      #   print "One or more of those spaces is already occupied; please enter new coordinates."
+      #
 
   def human_places_big_ship(coordinate1, coordinate2, coordinate3)
     empty.find do |coordinate|
@@ -58,6 +63,7 @@ class GameBoard
       end
     end
   end
+
 
 
   def fire_at_ship(coordinate)
