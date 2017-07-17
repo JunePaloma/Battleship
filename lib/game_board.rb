@@ -11,39 +11,48 @@ class GameBoard
       "C1"=>"Open", "C2"=>"Open", "C3"=>"Open", "C4"=>"Open",
       "D1"=>"Open", "D2"=>"Open", "D3"=>"Open","D4"=>"Open"}
     @placed_ships = []
-    @empty = []
-    @occupied = []
+    #@empty = []
+  #  @occupied = []
   end
 
 # to reassign value: boardhash[key] = "Occupied"
 
+
+def place_little_ship(coordinate1, coordinate2)
+  get_empties = make_array_of_empty_spaces
+  get_empties.each do |coordinate|
+    if coordinate1 == coordinate
+      @boardhash[coordinate1] = "Occupied"
+    elsif coordinate2 == coordinate
+      @boardhash[coordinate2] = "Occupied"
+    end
+  end
+end
+
    def make_array_of_empty_spaces
+    empty = []
     boardhash.keys.each do |coordinate|
       if boardhash[coordinate] == "Open"
-        @empty << coordinate
+        empty << coordinate
       end
     end
+    empty
   end
 
-  def make_array_of_occupied_spaces(coordinate1, coordinate2)
-  boardhash.keys.each do |coordinate|
+  def make_array_of_occupied_spaces
+    occupied = []
+    boardhash.keys.each do |coordinate|
       if boardhash[coordinate] == "Occupied"
-        @occupied << coordinate
+        occupied << coordinate
       end
     end
+    occupied
   end
 
-  def place_little_ship(coordinate1, coordinate2)
-    @empty.find do |coordinate|
-      if coordinate1 == coordinate && coordinate == "Open"
-      boardhash[coordinate1] = "Occupied"
-    elsif coordinate2 == coordinate && coordinate == "Open"
-        boardhash[coordinate2] = "Occupied"
-      end
-    end
-    @occupied << coordinate1
-    @occupied << coordinate2
-  end
+
+
+
+
 
   def validate_vertical_placement_small_ship(coordinate1, coordinate2)
 

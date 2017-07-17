@@ -18,9 +18,27 @@ class GameBoardTest < Minitest::Test
   end
 
   def test_board_spaces_can_be_occupied
-
     @board.place_little_ship("A1", "A2")
-    assert_equal ["A1", "A2"], @board.occupied
+    assert_equal ["A1", "A2"], @board.make_array_of_occupied_spaces
+  end
+
+  # def test_board_spaces_that_are_occupied_cant_be_chosen
+  #     @board.place_little_ship("A1", "A2")
+  #     @board.place_little_ship("A1", "B1")
+  #   assert_equal false, @board.place_little_ship("A1", "B1")
+  # end
+
+  def test_horizontal_little_ship_placement_is_legal
+    skip
+      @board.place_little_ship("A1", "A2")
+      assert_equal true, @board.validate_vertical_placement_small_ship("A1", "A2")
+
+      @board.place_little_ship("A1", "A4")
+      asser_equal false, @board.validate_vertical_placement_small_ship("A1", "A4")
+  end
+
+  def test_vertical_little_ship_placement_is_legal
+    skip
   end
 
   def test_place_little_ship
