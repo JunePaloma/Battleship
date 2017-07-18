@@ -16,23 +16,16 @@ class GameBoard
 # to reassign value: boardhash[key] = "Occupied"
 
 def make_little_ship(coordinate1, coordinate2)
-  validity = valid_little_ship_coordinates?(coordinate1, coordinate2)
-  if validity == true
+  if valid_little_ship_coordinates?(coordinate1, coordinate2) == true
     place_little_ship(coordinate1, coordinate2)
     little_ship = TwoUnitShip.new(coordinate1, coordinate2)
   end
 end
 
 def place_little_ship(coordinate1, coordinate2)
-  #get_empties = make_array_of_empty_spaces
-  #get_empties.each do |coordinate|
-  #  if coordinate1 == coordinate
       @boardhash[coordinate1] = "Occupied"
-    #elsif coordinate2 == coordinate
       @boardhash[coordinate2] = "Occupied"
-  #  end
-#  end
-end 
+end
 
 def valid_little_ship_coordinates?(coordinate1, coordinate2)
   continuous = little_ship_continuous?(coordinate1, coordinate2)
@@ -74,36 +67,6 @@ def little_ship_vertical_valid?(coordinate1, coordinate2)
   end
 end
 
-
-  def make_array_of_all_spaces
-    board_array = []
-    @boardhash.keys.each do |coordinate|
-      board_array << coordinate
-      end
-    board_array
-  end
-
-  def make_array_of_empty_spaces
-    empty = []
-    @boardhash.keys.each do |coordinate|
-      if boardhash[coordinate] == "Open"
-        empty << coordinate
-      end
-    end
-    empty
-  end
-
-  def make_array_of_occupied_spaces
-    occupied = []
-    @boardhash.keys.each do |coordinate|
-      if boardhash[coordinate] == "Occupied"
-        occupied << coordinate
-      end
-    end
-    occupied
-  end
-
-
 def make_big_ship(coordinate1, coordinate2, coordinate3)
   validity = valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
   if validity == true && will_ship_fit?(coordinate1, coordinate2, coordinate3) == true
@@ -125,14 +88,12 @@ end
 
     def will_ship_fit?(coordinate1, coordinate2, coordinate3)
       if find_overlapping_spaces(coordinate1, coordinate2, coordinate3) == []
-        #valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
     return true
       else
         #print "The following coordinates are already occupied {#{check_if_big_ship_fits}}. Choose again."
         return false
       end
     end
-
 
   def valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
     if big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3) == true
@@ -164,7 +125,6 @@ end
     end
   end
 
-
 def big_ship_runs_off_board?(coordinate1)
   board = make_array_of_all_spaces
   if board.index(coordinate1) == 2 || board.index(coordinate1) == 6 || board.index(coordinate1) == 10 || board.index(coordinate1) == 15
@@ -172,6 +132,34 @@ def big_ship_runs_off_board?(coordinate1)
   else
     return false
   end
+end
+
+def make_array_of_all_spaces
+  board_array = []
+  @boardhash.keys.each do |coordinate|
+    board_array << coordinate
+    end
+  board_array
+end
+
+def make_array_of_empty_spaces
+  empty = []
+  @boardhash.keys.each do |coordinate|
+    if boardhash[coordinate] == "Open"
+      empty << coordinate
+    end
+  end
+  empty
+end
+
+def make_array_of_occupied_spaces
+  occupied = []
+  @boardhash.keys.each do |coordinate|
+    if boardhash[coordinate] == "Occupied"
+      occupied << coordinate
+    end
+  end
+  occupied
 end
 
 end
