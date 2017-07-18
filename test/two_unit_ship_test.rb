@@ -16,4 +16,7 @@ class TwoUnitShipTest < Minitest::Test
     def test_it_can_take_a_hit
     end
 
+    def test_it_can_be_destroyed
+    end
+
   end
