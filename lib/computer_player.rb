@@ -11,7 +11,10 @@ class ComputerPlayer
     @compboard = GameBoard.new
   end
 
-
+def pick_index_for_first_coordinate
+  prng = Random.new
+  prng.rand(15)  
+end
 
 
 end

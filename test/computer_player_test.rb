@@ -21,4 +21,13 @@ class ComputerPlayerTest < Minitest::Test
     assert_instance_of GameBoard, @cp.compboard
   end
 
+  def test_it_can_pick_first_index
+    assert_instance_of Fixnum, @cp.pick_index_for_first_coordinate
+  end
+
+  def test_it_can_pick_two_coordinates
+    skip
+    assert_equal ["A1", "A2"], @cp.pick_two_coordinates
+  end
+
 end
