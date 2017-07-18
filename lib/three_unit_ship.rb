@@ -1,4 +1,4 @@
-class TwoUnitShip
+class ThreeUnitShip
   attr_accessor :coordinates
 
   def initialize(coordinate1, coordinate2, coordinate3)

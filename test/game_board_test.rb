@@ -153,5 +153,9 @@ def test_big_ship_coordinates_validity
   assert_equal false, @board.valid_big_ship_coordinates?("B3", "B4", "B1") #wrap around board
 end
 
+def test_a_big_ship_is_made
+assert_instance_of ThreeUnitShip, @board.make_big_ship("D1","D2","D3")
+refute_instance_of ThreeUnitShip, @board.make_big_ship("D1","D2","D4")
+end
 
 end
