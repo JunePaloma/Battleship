@@ -107,21 +107,32 @@ def make_little_ship(coordinate1, coordinate2)
 end
 
 
-def check_if_big_ship_fits(coordinate1, coordinate2, coordinate3)
-  get_empties = make_array_of_empty_spaces
-    get_empties.each do |coordinate|
-      if coordinate1 == coordinate && @boardhash[coordinate1] == "Occupied"
-        return "The first coordinate is occupied, choose again."
-      elsif coordinate2 == coordinate && @boardhash[coordinate2] == "Occupied"
-        return "The second coordinate is occupied, choose again."
-      elsif coordinate3 == coordinate && @boardhash[coordinate3] == "Occupied"
-        return "The third coordinate is occupied, choose again."
-      else
-        return true
+  def check_if_big_ship_fits(coordinate1, coordinate2, coordinate3)
+    make_array_of_occupied_spaces.find_all do |coordinate|
+      coordinate == coordinate1 || coordinate == coordinate2 || coordinate == coordinate3
       end
     end
-end
 
+    def will_ship_fit?
+      if check_if_big_ship_fits == []
+      end
+    end
+
+      # coordinate1 == coordinate && @boardhash[coordinate1] == "Occupied"
+      #     return_string = "The first coordinate is occupied, choose again."
+      #   elsif coordinate2 == coordinate && @boardhash[coordinate2] == "Occupied"
+      #     return_string = "The second coordinate is occupied, choose again."
+      #   elsif coordinate3 == coordinate && @boardhash[coordinate3] == "Occupied"
+      #     return_string = "The third coordinate is occupied, choose again."
+    #     else
+    #       #place_big_ship(coordinate1, coordinate2, coordinate3)
+    #     end
+    #   end
+    #
+    # end
+
+  def place_big_ship(coordinate1, coordinate2, coordinate3)
+  end
 
 end
 
