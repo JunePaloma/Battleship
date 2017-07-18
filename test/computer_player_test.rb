@@ -29,6 +29,10 @@ class ComputerPlayerTest < Minitest::Test
     refute_nil @cp.get_coordinate_for_first_space
   end
 
+  def test_it_can_pick_a_second_coordinate
+    refute_nil @cp.use_first_coordinate_to_find_second_coordinate
+  end
+
   def test_it_can_pick_two_coordinates
     skip
     assert_equal ["A1", "A2"], @cp.pick_two_coordinates
