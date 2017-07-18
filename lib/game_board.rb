@@ -1,5 +1,6 @@
 require './lib/three_unit_ship'
 require './lib/two_unit_ship'
+require './lib/ships'
 class GameBoard
   attr_accessor :boardhash,
                 :occupied
@@ -10,9 +11,6 @@ class GameBoard
       "B1"=>"Open", "B2"=>"Open", "B3"=>"Open", "B4"=>"Open",
       "C1"=>"Open", "C2"=>"Open", "C3"=>"Open", "C4"=>"Open",
       "D1"=>"Open", "D2"=>"Open", "D3"=>"Open","D4"=>"Open"}
-    @placed_ships = []
-    #@empty = []
-  #  @occupied = []
   end
 
 # to reassign value: boardhash[key] = "Occupied"
@@ -59,7 +57,6 @@ end #no return, this just changes the values of the keys in the hash
 
 
   def little_ship_vertical_valid?(coordinate1, coordinate2)
-  #  ship = make_array_of_occupied_spaces
     board = make_array_of_all_spaces
     if board.index(coordinate2) - board.index(coordinate1) == 4
       return true
@@ -93,7 +90,6 @@ end #no return, this just changes the values of the keys in the hash
     continuous = little_ship_continuous?(coordinate1, coordinate2)
     off_board = little_ship_runs_off_board?(coordinate1, coordinate2)
     vertical = little_ship_vertical_valid?(coordinate1, coordinate2)
-
     if continuous == true && off_board == false
       return true
     elsif vertical == true
@@ -110,6 +106,24 @@ def make_little_ship(coordinate1, coordinate2)
   end
 end
 
+
+def check_if_big_ship_fits(coordinate1, coordinate2, coordinate3)
+  get_empties = make_array_of_empty_spaces
+    get_empties.each do |coordinate|
+      if coordinate1 == coordinate && @boardhash[coordinate1] == "Occupied"
+        return "The first coordinate is occupied, choose again."
+      elsif coordinate2 == coordinate && @boardhash[coordinate2] == "Occupied"
+        return "The second coordinate is occupied, choose again."
+      elsif coordinate3 == coordinate && @boardhash[coordinate3] == "Occupied"
+        return "The third coordinate is occupied, choose again."
+      else
+        return true
+      end
+    end
+end
+
+
+end
 
 #if both vertical and horizontal are valid, create the ship object.
 
@@ -144,9 +158,7 @@ end
 
 
 
-  def fire_at_ship(coordinate)
-  hit.two_unit_ship(coordinate)
-  hit.three_unit_ship(coordinate)
-  end
-
-end
+  # def fire_at_ship(coordinate)
+  # hit.two_unit_ship(coordinate)
+  # hit.three_unit_ship(coordinate)
+  # end

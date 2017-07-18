@@ -7,17 +7,35 @@ attr_reader :coordinate1,
     @c1 = coordinate1
     @c2 = coordinate2
     @c3 = coordinate3
-    @hit = 0
-    @destroyed = false
+    @hits = 0
+  #  @destroyed = false
   end
 
-  def how_big(c3)
-    if c3 = nil
-      two_unit_ship
-    else
+  def what_size
+    if @c3 != nil
       three_unit_ship
+    else
+      two_unit_ship
     end
   end
 
+  def two_unit_ship
+
+  end
+
+
+  def little_ship_vertical_valid?
+  #  ship = make_array_of_occupied_spaces
+    board = gameboard.make_array_of_all_spaces
+    if board.index(coordinate2) - board.index(coordinate1) == 4
+      return true
+    else
+      return false
+    end
+  end
+
+  def three_unit_ship
+    "three_unit"
+  end
 
 end

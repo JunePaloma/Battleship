@@ -105,19 +105,22 @@ class GameBoardTest < Minitest::Test
   end
 
 
-def test_a_little_ship_is_made
+  def test_a_little_ship_is_made
+  assert_instance_of TwoUnitShip, @board.make_little_ship("D2", "D3")
+  end
 
-assert_instance_of TwoUnitShip, @board.make_little_ship("D2", "D3")
+  def test_where_big_ship_can_land
+    ##@board.make_little_ship("D2", "D3")
+    @board.place_little_ship("D2", "D3")
 
-end
+    assert_equal true, @board.check_if_big_ship_fits("A1", "A2", "A3")
+  end
 
-  # def test_place_big_ship
-  #   skip
-  #   @board.human_places_big_ship("A1", "A2", "A3")
-  #   assert_equal [big_ship], @board.placed_ships
-  # end
-  #
-  # def test_coordinates_consecutive
-  #   skip
-  # end
+  def test_place_big_ship
+    skip
+    #@board.place_big_ship("A1", "A2", "A3")
+    assert_equal [], @board.check_if_big_ship_fits("A1", "A2", "A3")
+  end
+
+
 end
