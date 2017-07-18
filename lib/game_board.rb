@@ -115,17 +115,28 @@ end
 
     def will_ship_fit?(coordinate1, coordinate2, coordinate3)
       if find_overlapping_spaces(coordinate1, coordinate2, coordinate3) == []
-        #place_big_ship(coordinate1, coordinate2, coordinate3)
-        return true
+        #valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
+    return true
       else
         #print "The following coordinates are already occupied {#{check_if_big_ship_fits}}. Choose again."
         return false
       end
     end
 
-  def place_big_ship(coordinate1, coordinate2, coordinate3)
-    if big_ship_vertical?(coordinate1, coordinate2, coordinate3) == true
-    elsif big_ship_continuous(coordinate1, coordinate2, coordinate3) == true
+  def make_big_ship(coordinate1, coordinate2)
+    validity = valid_big_ship_coordinates?(coordinate1, coordinate2)
+    if validity == true && will_ship_fit? == true
+    big_ship = ThreeUnitShip.new(coordinate1, coordinate2, coordinate3)
+    end
+  end
+
+  def valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
+    if big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3) == true
+      return true
+    elsif big_ship_continuous?(coordinate1, coordinate2, coordinate3) == true && big_ship_runs_off_board?(coordinate1) == false
+      return true
+    else
+      return false
     end
   end
 
@@ -150,7 +161,7 @@ end
   end
 
 
-def big_ship_runs_off_board?(coordinate1, coordinate2, coordinate3)
+def big_ship_runs_off_board?(coordinate1)
   board = make_array_of_all_spaces
   if board.index(coordinate1) == 2 || board.index(coordinate1) == 6 || board.index(coordinate1) == 10 || board.index(coordinate1) == 15
     return true
@@ -160,41 +171,3 @@ def big_ship_runs_off_board?(coordinate1, coordinate2, coordinate3)
 end
 
 end
-
-#if both vertical and horizontal are valid, create the ship object.
-
-
-
-
-
-      #   if valid?
-      #   little_ship = TwoUnitShip.New(coordinate1, coordinate2)
-      #   placed_ships << little_ship
-      #   print "Your ship has been placed."
-      # else
-      #   print "One or more of those spaces is already occupied; please enter new coordinates."
-      #
-
-  # def human_places_big_ship(coordinate1, coordinate2, coordinate3)
-  #   empty.find do |coordinate|
-  #     if coordinate1 == coordinate
-  #       boardhash[coordinate1] = "Occupied"
-  #     elsif coordinate2 == coordinate
-  #       boardhash[coordinate2] = "Occupied"
-  #     elsif coordinate3 == coordinate
-  #       boardhash[coordinate3] = "Occupied"
-  #       big_ship = ThreeUnitShip.New(coordinate1, coordinate2, coordinate3)
-  #       placed_ships << little_ship
-  #       print "Your ship has been placed."
-  #     else
-  #       print "You've already placed a ship in one or more of those spaces; please enter new coordinates."
-  #     end
-  #   end
-  # end
-
-
-
-  # def fire_at_ship(coordinate)
-  # hit.two_unit_ship(coordinate)
-  # hit.three_unit_ship(coordinate)
-  # end

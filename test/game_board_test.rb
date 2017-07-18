@@ -140,8 +140,18 @@ def test_is_big_ship_continuous
 end
 
 def test_big_ship_runs_off_board
-  assert_equal false, @board.big_ship_runs_off_board?("A1", "A2", "A3")
-  assert_equal true, @board.big_ship_runs_off_board?("A3","A4","B1")
+  assert_equal false, @board.big_ship_runs_off_board?("A1")
+  assert_equal true, @board.big_ship_runs_off_board?("A3")
 end
+
+def test_big_ship_coordinates_validity
+  assert_equal true, @board.valid_big_ship_coordinates?("A1", "A2", "A3")
+  assert_equal true, @board.valid_big_ship_coordinates?("A1", "B1", "C1")
+  assert_equal false, @board.valid_big_ship_coordinates?("A1", "B1", "D1") #not continuous vertical
+  assert_equal false, @board.valid_big_ship_coordinates?("A1", "A2", "A4") #not continuous horizontal
+  assert_equal false, @board.valid_big_ship_coordinates?("A1", "B1", "C3") #diagonal
+  assert_equal false, @board.valid_big_ship_coordinates?("B3", "B4", "B1") #wrap around board
+end
+
 
 end
