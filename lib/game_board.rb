@@ -15,17 +15,65 @@ class GameBoard
 
 # to reassign value: boardhash[key] = "Occupied"
 
+def make_little_ship(coordinate1, coordinate2)
+  validity = valid_little_ship_coordinates?(coordinate1, coordinate2)
+  if validity == true
+    place_little_ship(coordinate1, coordinate2)
+    little_ship = TwoUnitShip.new(coordinate1, coordinate2)
+  end
+end
 
 def place_little_ship(coordinate1, coordinate2)
-  get_empties = make_array_of_empty_spaces
-  get_empties.each do |coordinate|
-    if coordinate1 == coordinate
+  #get_empties = make_array_of_empty_spaces
+  #get_empties.each do |coordinate|
+  #  if coordinate1 == coordinate
       @boardhash[coordinate1] = "Occupied"
-    elsif coordinate2 == coordinate
+    #elsif coordinate2 == coordinate
       @boardhash[coordinate2] = "Occupied"
-    end
+  #  end
+#  end
+end 
+
+def valid_little_ship_coordinates?(coordinate1, coordinate2)
+  continuous = little_ship_continuous?(coordinate1, coordinate2)
+  off_board = little_ship_runs_off_board?(coordinate1, coordinate2)
+  vertical = little_ship_vertical_valid?(coordinate1, coordinate2)
+  if continuous == true && off_board == false
+    return true
+  elsif vertical == true
+    return true
+  else
+    return false
   end
-end #no return, this just changes the values of the keys in the hash
+end
+
+def little_ship_continuous?(coordinate1, coordinate2)
+  board = make_array_of_all_spaces
+  if board.index(coordinate2) - board.index(coordinate1) != 1
+    return false
+  else
+    return true
+  end
+end
+
+def little_ship_runs_off_board?(coordinate1, coordinate2)
+  board = make_array_of_all_spaces
+  if board.index(coordinate1) == 3 || board.index(coordinate1) == 7 ||board.index(coordinate1) == 15 || board.index(coordinate1) == 11
+    return true
+  else
+    return false
+  end
+end
+
+def little_ship_vertical_valid?(coordinate1, coordinate2)
+  board = make_array_of_all_spaces
+  if board.index(coordinate2) - board.index(coordinate1) == 4
+    return true
+  else
+    return false
+  end
+end
+
 
   def make_array_of_all_spaces
     board_array = []
@@ -56,56 +104,18 @@ end #no return, this just changes the values of the keys in the hash
   end
 
 
-  def little_ship_vertical_valid?(coordinate1, coordinate2)
-    board = make_array_of_all_spaces
-    if board.index(coordinate2) - board.index(coordinate1) == 4
-      return true
-    else
-      return false
-    end
-  end
-
-
-  def little_ship_continuous?(coordinate1, coordinate2)
-    board = make_array_of_all_spaces
-    if board.index(coordinate2) - board.index(coordinate1) != 1
-      return false
-    else
-      return true
-    end
-  end
-
-
-
-  def little_ship_runs_off_board?(coordinate1, coordinate2)
-    board = make_array_of_all_spaces
-    if board.index(coordinate1) == 3 || board.index(coordinate1) == 7 ||board.index(coordinate1) == 15 || board.index(coordinate1) == 11
-      return true
-    else
-      return false
-    end
-  end
-
-  def valid_little_ship_coordinates?(coordinate1, coordinate2)
-    continuous = little_ship_continuous?(coordinate1, coordinate2)
-    off_board = little_ship_runs_off_board?(coordinate1, coordinate2)
-    vertical = little_ship_vertical_valid?(coordinate1, coordinate2)
-    if continuous == true && off_board == false
-      return true
-    elsif vertical == true
-      return true
-    else
-      return false
-    end
-  end
-
-def make_little_ship(coordinate1, coordinate2)
-  validity = valid_little_ship_coordinates?(coordinate1, coordinate2)
-  if validity == true
-    little_ship = TwoUnitShip.new(coordinate1, coordinate2)
+def make_big_ship(coordinate1, coordinate2, coordinate3)
+  validity = valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
+  if validity == true && will_ship_fit?(coordinate1, coordinate2, coordinate3) == true
+  big_ship = ThreeUnitShip.new(coordinate1, coordinate2, coordinate3)
   end
 end
 
+def place_big_ship(coordinate1, coordinate2, coordinate3)
+        @boardhash[coordinate1] = "Occupied"
+        @boardhash[coordinate2] = "Occupied"
+        @boardhash[coordinate3] = "Occupied"
+end
 
   def find_overlapping_spaces(coordinate1, coordinate2, coordinate3)
     make_array_of_occupied_spaces.find_all do |coordinate|
@@ -123,12 +133,6 @@ end
       end
     end
 
-  def make_big_ship(coordinate1, coordinate2, coordinate3)
-    validity = valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
-    if validity == true && will_ship_fit?(coordinate1, coordinate2, coordinate3) == true
-    big_ship = ThreeUnitShip.new(coordinate1, coordinate2, coordinate3)
-    end
-  end
 
   def valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
     if big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3) == true
