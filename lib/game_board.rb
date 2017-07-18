@@ -80,59 +80,60 @@ def place_big_ship(coordinate1, coordinate2, coordinate3)
         @boardhash[coordinate3] = "Occupied"
 end
 
+def valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
+  if big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3) == true
+    return true
+  elsif big_ship_continuous?(coordinate1, coordinate2, coordinate3) == true && big_ship_runs_off_board?(coordinate1) == false
+    return true
+  else
+    return false
+  end
+end
+
+def will_ship_fit?(coordinate1, coordinate2, coordinate3)
+  if find_overlapping_spaces(coordinate1, coordinate2, coordinate3) == []
+return true
+  else
+    #print "The following coordinates are already occupied {#{check_if_big_ship_fits}}. Choose again."
+    return false
+  end
+end
+
   def find_overlapping_spaces(coordinate1, coordinate2, coordinate3)
     make_array_of_occupied_spaces.find_all do |coordinate|
       coordinate == coordinate1 || coordinate == coordinate2 || coordinate == coordinate3
       end
     end
 
-    def will_ship_fit?(coordinate1, coordinate2, coordinate3)
-      if find_overlapping_spaces(coordinate1, coordinate2, coordinate3) == []
-    return true
-      else
-        #print "The following coordinates are already occupied {#{check_if_big_ship_fits}}. Choose again."
-        return false
-      end
-    end
-
-  def valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
-    if big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3) == true
-      return true
-    elsif big_ship_continuous?(coordinate1, coordinate2, coordinate3) == true && big_ship_runs_off_board?(coordinate1) == false
-      return true
-    else
-      return false
-    end
-  end
-
-  def big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3)
-    board = make_array_of_all_spaces
-    if board.index(coordinate3) - board.index(coordinate1) == 8
-      return true
-    else
-      return false
-    end
-  end
-
-  def big_ship_continuous?(coordinate1, coordinate2, coordinate3)
-    board = make_array_of_all_spaces
-    if board.index(coordinate2) - board.index(coordinate1) != 1
-      return false
-    elsif board.index(coordinate3) - board.index(coordinate2) != 1
-      return false
-    else
-      return true
-    end
-  end
-
-def big_ship_runs_off_board?(coordinate1)
+def big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3)
   board = make_array_of_all_spaces
-  if board.index(coordinate1) == 2 || board.index(coordinate1) == 6 || board.index(coordinate1) == 10 || board.index(coordinate1) == 15
+  if board.index(coordinate3) - board.index(coordinate1) == 8
     return true
   else
     return false
   end
 end
+
+def big_ship_continuous?(coordinate1, coordinate2, coordinate3)
+  board = make_array_of_all_spaces
+  if board.index(coordinate2) - board.index(coordinate1) != 1
+    return false
+  elsif board.index(coordinate3) - board.index(coordinate2) != 1
+    return false
+  else
+    return true
+  end
+end
+
+def big_ship_runs_off_board?(coordinate1)
+board = make_array_of_all_spaces
+if board.index(coordinate1) == 2 || board.index(coordinate1) == 6 || board.index(coordinate1) == 10 || board.index(coordinate1) == 15
+  return true
+else
+  return false
+end
+end
+
 
 def make_array_of_all_spaces
   board_array = []
