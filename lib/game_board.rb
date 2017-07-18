@@ -113,8 +113,11 @@ end
       end
     end
 
-    def will_ship_fit?
-      if check_if_big_ship_fits == []
+    def will_ship_fit?(coordinate1, coordinate2, coordinate3)
+      if check_if_big_ship_fits(coordinate1, coordinate2, coordinate3) == []
+        return true
+      else
+        return false  
       end
     end
 

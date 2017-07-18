@@ -110,17 +110,18 @@ class GameBoardTest < Minitest::Test
   end
 
   def test_if_big_ship_fits
-    @board.make_little_ship("D2", "D3")
     @board.place_little_ship("D2", "D3")
-
     assert_equal [], @board.check_if_big_ship_fits("A1", "A2", "A3")
     assert_equal ["D2", "D3"], @board.check_if_big_ship_fits("D1", "D2", "D3")
   end
 
   def test_place_big_ship
-  skip
-    #@board.place_big_ship("A1", "A2", "A3")
-    assert_equal [], @board.check_if_big_ship_fits("A1", "A2", "A3")
+
+    @board.place_little_ship("D2", "D3")
+    assert_equal true, @board.will_ship_fit?("A1", "A2", "A3")
+
+    @board.place_little_ship("D2", "D3")
+    assert_equal false, @board.will_ship_fit?("D1", "D2", "D3")
   end
 
 
