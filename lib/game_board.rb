@@ -115,26 +115,27 @@ end
 
     def will_ship_fit?(coordinate1, coordinate2, coordinate3)
       if check_if_big_ship_fits(coordinate1, coordinate2, coordinate3) == []
+        #place_big_ship(coordinate1, coordinate2, coordinate3)
         return true
       else
-        return false  
+        #print "The following coordinates are already occupied {#{check_if_big_ship_fits}}. Choose again."
+        return false
       end
     end
 
-      # coordinate1 == coordinate && @boardhash[coordinate1] == "Occupied"
-      #     return_string = "The first coordinate is occupied, choose again."
-      #   elsif coordinate2 == coordinate && @boardhash[coordinate2] == "Occupied"
-      #     return_string = "The second coordinate is occupied, choose again."
-      #   elsif coordinate3 == coordinate && @boardhash[coordinate3] == "Occupied"
-      #     return_string = "The third coordinate is occupied, choose again."
-    #     else
-    #       #place_big_ship(coordinate1, coordinate2, coordinate3)
-    #     end
-    #   end
-    #
-    # end
-
   def place_big_ship(coordinate1, coordinate2, coordinate3)
+    if big_ship_vertical?(coordinate1, coordinate2, coordinate3) == true
+    else
+    end
+  end
+
+  def big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3)
+    board = make_array_of_all_spaces
+    if board.index(coordinate3) - board.index(coordinate1) == 8
+      return true
+    else
+      return false
+    end
   end
 
 end
