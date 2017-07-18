@@ -25,6 +25,10 @@ class ComputerPlayerTest < Minitest::Test
     assert_instance_of Fixnum, @cp.pick_index_for_first_coordinate
   end
 
+  def test_it_translates_index_into_coordinate
+    refute_nil @cp.get_coordinate_for_first_space
+  end
+
   def test_it_can_pick_two_coordinates
     skip
     assert_equal ["A1", "A2"], @cp.pick_two_coordinates
