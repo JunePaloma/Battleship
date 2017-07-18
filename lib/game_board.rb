@@ -79,7 +79,7 @@ end #no return, this just changes the values of the keys in the hash
 
   def little_ship_runs_off_board?(coordinate1, coordinate2)
     board = make_array_of_all_spaces
-    if board.index(coordinate1) == 3 || board.index(coordinate1) == 7 ||board.index(coordinate1) == 15
+    if board.index(coordinate1) == 3 || board.index(coordinate1) == 7 ||board.index(coordinate1) == 15 || board.index(coordinate1) == 11
       return true
     else
       return false
@@ -107,14 +107,14 @@ def make_little_ship(coordinate1, coordinate2)
 end
 
 
-  def check_if_big_ship_fits(coordinate1, coordinate2, coordinate3)
+  def find_overlapping_spaces(coordinate1, coordinate2, coordinate3)
     make_array_of_occupied_spaces.find_all do |coordinate|
       coordinate == coordinate1 || coordinate == coordinate2 || coordinate == coordinate3
       end
     end
 
     def will_ship_fit?(coordinate1, coordinate2, coordinate3)
-      if check_if_big_ship_fits(coordinate1, coordinate2, coordinate3) == []
+      if find_overlapping_spaces(coordinate1, coordinate2, coordinate3) == []
         #place_big_ship(coordinate1, coordinate2, coordinate3)
         return true
       else
@@ -125,7 +125,7 @@ end
 
   def place_big_ship(coordinate1, coordinate2, coordinate3)
     if big_ship_vertical?(coordinate1, coordinate2, coordinate3) == true
-    else
+    elsif big_ship_continuous(coordinate1, coordinate2, coordinate3) == true
     end
   end
 
@@ -137,6 +137,27 @@ end
       return false
     end
   end
+
+  def big_ship_continuous?(coordinate1, coordinate2, coordinate3)
+    board = make_array_of_all_spaces
+    if board.index(coordinate2) - board.index(coordinate1) != 1
+      return false
+    elsif board.index(coordinate3) - board.index(coordinate2) != 1
+      return false
+    else
+      return true
+    end
+  end
+
+
+def big_ship_runs_off_board?(coordinate1, coordinate2, coordinate3)
+  board = make_array_of_all_spaces
+  if board.index(coordinate1) == 2 || board.index(coordinate1) == 6 || board.index(coordinate1) == 10 || board.index(coordinate1) == 15
+    return true
+  else
+    return false
+  end
+end
 
 end
 
