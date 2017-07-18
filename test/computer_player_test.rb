@@ -17,4 +17,8 @@ class ComputerPlayerTest < Minitest::Test
     assert_instance_of ComputerPlayer, @cp
   end
 
+  def test_it_has_a_game_board
+    assert_instance_of GameBoard, @cp.compboard
+  end
+
 end
