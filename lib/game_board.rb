@@ -4,9 +4,6 @@ require './lib/ships'
 class GameBoard
   attr_accessor :boardhash,
                 :empty
-
-
-
   def initialize
     @boardhash = {"A1"=>"Open", "A2"=>"Open", "A3"=>"Open", "A4"=>"Open",
       "B1"=>"Open", "B2"=>"Open", "B3"=>"Open", "B4"=>"Open",

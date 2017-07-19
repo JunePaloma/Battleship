@@ -5,16 +5,21 @@ require './lib/game_board'
 require 'pry'
 class ComputerPlayer
   attr_accessor :compboard,
-                :little_ship_coordinate_1,
-                :little_ship_coordinate_2
-
-
+                :first_coordinate_ls
+                :second_coordinate_ls
+                :first_coodinate_bs
+                :second_coordinate_bs
+                :third_coordinate_bs
 
   def initialize
     @compboard = GameBoard.new
-    @starting_index = 0
+    @ls_starting_index = 0
+    @bs_starting_index = 0
     @first_coordinate_ls = ""
     @second_coordinate_ls = ""
+    @first_coodinate_bs = ""
+    @second_coordinate_bs = ""
+    @third_coordinate_bs = ""
 
   end
 
@@ -25,32 +30,45 @@ class ComputerPlayer
     "#{generate_first_little_ship_coordinate}, #{generate_second_little_ship_coordinate}"
   end
 
+
   def generate_first_little_ship_coordinate
-    @first_coordinate_ls = generate_first_coordinate
+    board_array = @compboard.make_array_of_empty_spaces
+    @first_coordinate_ls = board_array[pick_index_for_first_coordinate] #this returns a coordinate key
+  end
+
+  def pick_index_for_first_coordinate
+    prng = Random.new
+    @ls_starting_index = prng.rand(14)
   end
 
   def generate_second_little_ship_coordinate
     board_array = @compboard.make_array_of_empty_spaces
     if @first_coordinate_ls[1] == "1" || @first_coordinate_ls[1] == "3"|| @first_coordinate_ls[1] == "2"
-      @second_coordinate_ls = board_array[@starting_index+1]
+      @second_coordinate_ls = board_array[@ls_starting_index+1]
     elsif @first_coordinate_ls[1] == "4"
-        @second_coordinate_ls = board_array[@starting_index+4]
+        @second_coordinate_ls = board_array[@ls_starting_index+4]
     end
   end
 
   def generate_first_big_ship_coordinate
-    @first_coordinate_bs = generate_first_coordinate
+    @first_coordinate_bs = generate_first_big_ship_coordinate
   end
 
-  def generate_first_coordinate
-    board_array = @compboard.make_array_of_empty_spaces
-    board_array[pick_index_for_first_coordinate] #this returns a coordinate key
-  end
-
-  def pick_index_for_first_coordinate
+  def pick_index_for_big_ship_coordinate
     prng = Random.new
-    @starting_index = prng.rand(15)
+    @bs_starting_index = prng.rand(8)
   end
+
+  def generate_second_and_third_big_ship_coordinate
+    board_array = @compboard.make_array_of_empty_spaces
+    @second_coordinate_bs = board_array[@bs_starting_index+4]
+    @second_coordinate_bs = board_array[@bs_starting_index+8]
+  end
+
+
+
+
+
 
 
 

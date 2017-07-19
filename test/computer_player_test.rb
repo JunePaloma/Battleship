@@ -26,7 +26,7 @@ class ComputerPlayerTest < Minitest::Test
   end
 
   def test_it_translates_index_into_coordinate
-    refute_nil @cp.generate_first_coordinate
+    refute_nil @cp.generate_first_little_ship_coordinate
   end
 
   # def test_it_can_pick_a_second_coordinate
