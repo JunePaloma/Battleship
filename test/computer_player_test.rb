@@ -13,6 +13,8 @@ class ComputerPlayerTest < Minitest::Test
     @cp = ComputerPlayer.new
   end
 
+
+
   def test_it_exists
     assert_instance_of ComputerPlayer, @cp
   end
@@ -29,6 +31,28 @@ class ComputerPlayerTest < Minitest::Test
     refute_nil @cp.generate_first_little_ship_coordinate
   end
 
+def test_it_can_generate_second_coordinate
+  @cp.first_coordinate_ls = "A1"
+  @cp.generate_second_little_ship_coordinate
+  assert_equal "A2", @cp.second_coordinate_ls
+
+  @cp.first_coordinate_ls = "A2"
+  @cp.ls_starting_index = 1
+  @cp.generate_second_little_ship_coordinate
+  assert_equal "A3", @cp.second_coordinate_ls
+
+
+  @cp.first_coordinate_ls = "A3"
+  @cp.ls_starting_index = 2
+  @cp.generate_second_little_ship_coordinate
+  assert_equal "A4", @cp.second_coordinate_ls
+
+
+  @cp.ls_starting_index = 3
+  @cp.first_coordinate_ls = "A4"
+  @cp.generate_second_little_ship_coordinate
+  assert_equal "B4", @cp.second_coordinate_ls
+end
 
   # def test_it_can_pick_two_coordinates
   #
@@ -41,8 +65,14 @@ class ComputerPlayerTest < Minitest::Test
   # end
 
   def test_it_can_pick_shot_location
-
+skip
     refute_nil @cp.pick_shot
+  end
+
+  def test_little_ship_is_on_board
+skip
+    @cp.place_little_ship
+    assert_instance_of TwoUnitShip, @little_ship
   end
 
 end

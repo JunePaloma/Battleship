@@ -6,12 +6,14 @@ require './lib/opponent_map'
 require 'pry'
 class ComputerPlayer
   attr_accessor :compboard,
-                :first_coordinate_ls
-                :second_coordinate_ls
-                :first_coodinate_bs
-                :second_coordinate_bs
-                :third_coordinate_bs
-                :shot
+                :first_coordinate_ls,
+                :second_coordinate_ls,
+                :first_coodinate_bs,
+                :second_coordinate_bs,
+                :third_coordinate_bs,
+                :shot,
+                :little_ship,
+                :ls_starting_index
 
   def initialize
     @compboard = GameBoard.new
@@ -23,15 +25,33 @@ class ComputerPlayer
     @first_coodinate_bs = ""
     @second_coordinate_bs = ""
     @third_coordinate_bs = ""
+    @little_ship = nil
+    @big_ship = nil
+  end
 
+
+    def generate_first_little_ship_coordinate
+      board_array = @compboard.make_array_of_empty_spaces
+      @first_coordinate_ls = board_array[pick_index_for_first_little_ship_coordinate] #this returns a coordinate key
+    end
+
+    def pick_index_for_first_little_ship_coordinate
+      prng = Random.new
+      @ls_starting_index = prng.rand(14)
+    end
+
+
+  def place_little_ship
+    create_little_ship_coordinates
+  @little_ship = @compboard.make_little_ship(@first_coordinate_ls, @second_coordinate_ls) #need to pass in two arguments
 
   end
 
   def create_little_ship_coordinates
-    first_coordinate = generate_first_little_ship_coordinate
-    second_coordinate = generate_second_little_ship_coordinate
-
-    "#{generate_first_little_ship_coordinate}, #{generate_second_little_ship_coordinate}"
+    @first_coordinate_ls = generate_first_little_ship_coordinate
+    @second_coordinate_ls = generate_second_little_ship_coordinate
+    #
+    # "#{generate_first_little_ship_coordinate}"", ""#{generate_second_little_ship_coordinate}"
   end
 
   def create_big_ship_coordinates
@@ -42,20 +62,18 @@ class ComputerPlayer
   end
 
 
-  def generate_first_little_ship_coordinate
-    board_array = @compboard.make_array_of_empty_spaces
-    @first_coordinate_ls = board_array[pick_index_for_first_little_ship_coordinate] #this returns a coordinate key
-  end
-
-  def pick_index_for_first_little_ship_coordinate
-    prng = Random.new
-    @ls_starting_index = prng.rand(14)
-  end
-
   def generate_second_little_ship_coordinate
     board_array = @compboard.make_array_of_empty_spaces
-    if @first_coordinate_ls[1] == "1" || @first_coordinate_ls[1] == "3"|| @first_coordinate_ls[1] == "2"
+    # if (@first_coordinate_ls[1] == "1") || (@first_coordinate_ls[1] == "2") || (@first_coordinate_ls[1] == "3")
+
+    if @first_coordinate_ls[1] == "1"
       @second_coordinate_ls = board_array[@ls_starting_index+1]
+
+    elsif @first_coordinate_ls[1] == "2"
+
+        @second_coordinate_ls = board_array[@ls_starting_index+1]
+    elsif @first_coordinate_ls[1] == "3"
+        @second_coordinate_ls = board_array[@ls_starting_index+1]
     elsif @first_coordinate_ls[1] == "4"
         @second_coordinate_ls = board_array[@ls_starting_index+4]
     end
@@ -88,9 +106,11 @@ class ComputerPlayer
 
   def pick_shot
     @opp_map.make_array_of_unfired_spaces(pick_index_for_shot_coordinate)
-    binding.pry
   end
 
+  def ship_hits
+
+  end
   def pick_index_for_shot_coordinate
     prng = Random.new
     prng.rand(15)

@@ -16,4 +16,8 @@ class GameRunnerTest < Minitest::Test
     assert_instance_of GameRunner, @game
   end
 
-end 
+  def test_computer_can_generate_small_ship_coordinates
+    assert_equal [],@game.computer_places_small_ship
+  end
+
+end

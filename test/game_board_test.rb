@@ -99,6 +99,7 @@ class GameBoardTest < Minitest::Test
   end
 
   def test_if_big_ship_fits
+  
     @new_board.place_little_ship("D2", "D3")
     assert_equal [], @new_board.find_overlapping_spaces("A1", "A2", "A3")
     assert_equal ["D2", "D3"], @new_board.find_overlapping_spaces("D1", "D2", "D3")
