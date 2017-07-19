@@ -1,5 +1,8 @@
+require './lib/three_unit_ship'
+require './lib/two_unit_ship'
+
 class OpponentMap
-  attr_accessor :board_array
+  attr_accessor :board_array,
                 :boardhash
   def initialize
     @boardhash = {"A1"=>"Open", "A2"=>"Open", "A3"=>"Open", "A4"=>"Open",
@@ -17,7 +20,7 @@ class OpponentMap
 #   @board_array
 # end
 
-def make_array_of_unfired_spaces(coordinate = 0)
+def make_array_of_unfired_spaces
   @boardhash.keys.each do |coordinate|
     if @boardhash[coordinate] == "Open" #may need @boardhash
       @available << coordinate

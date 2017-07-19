@@ -8,7 +8,7 @@ class TwoUnitShip
     @destroyed = false
   end
 
-def hit(coordinate)
+def hit
     @hit+=1
 end
 

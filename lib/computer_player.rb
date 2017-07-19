@@ -14,7 +14,8 @@ class ComputerPlayer
                 :shot,
                 :little_ship,
                 :big_ship,
-                :ls_starting_index
+                :ls_starting_index,
+                :opp_map
 
   def initialize
     @compboard = GameBoard.new
@@ -105,21 +106,15 @@ class ComputerPlayer
     prng.rand(15)
   end
 
-  def fire_shot
-    shot = pick_shot
-
-    @opp_map.mark_hits(shot)
-  end
-
   def pick_shot
-    
-    @opp_map.make_array_of_unfired_spaces(pick_index_for_shot_coordinate)
-
+    board = @opp_map.make_array_of_unfired_spaces
+    board[(pick_index_for_shot_coordinate)]
   end
 
-  def ship_hits
-
+  def fire_shot(pick_shot)
+    @opp_map.mark_hits(pick_shot)
   end
+
 
 
 end

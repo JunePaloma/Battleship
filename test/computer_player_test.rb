@@ -1,10 +1,11 @@
 gem 'minitest'
-require './lib/game_board'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/two_unit_ship'
 require './lib/three_unit_ship'
 require './lib/computer_player'
+require './lib/game_board'
+require './lib/opponent_map'
 require 'pry'
 
 class ComputerPlayerTest < Minitest::Test
@@ -66,8 +67,12 @@ end
   end
 
   def test_it_can_pick_shot_location
-
     refute_nil @cp.pick_shot
   end
+  #
+  # def test_it_can_fire_shots
+  #   @cp.fire_shot("A4")
+  #   assert_equal "Fired", @cp.opp_map.boardhash["A4"]
+  # end this test is for hard cording purposes
 
 end
