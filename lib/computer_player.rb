@@ -23,7 +23,7 @@ class ComputerPlayer
     @first_coodinate_bs = ""
     @second_coordinate_bs = ""
     @third_coordinate_bs = ""
-    @shot = fire_shot
+
 
   end
 
@@ -82,11 +82,13 @@ class ComputerPlayer
   end
 
   def fire_shot
-    @opp_map 
+    shot = pick_shot
+    @opp_map.mark_hits(shot)
+  end
 
-    board[pick_index_for_shot_coordinate]
-
-      binding.pry
+  def pick_shot
+    @opp_map.make_array_of_unfired_spaces(pick_index_for_shot_coordinate)
+    binding.pry
   end
 
   def pick_index_for_shot_coordinate

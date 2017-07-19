@@ -1,6 +1,6 @@
 require './lib/three_unit_ship'
 require './lib/two_unit_ship'
-require './lib/ships'
+
 class GameBoard
   attr_accessor :boardhash,
                 :empty

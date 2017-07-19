@@ -29,24 +29,20 @@ class ComputerPlayerTest < Minitest::Test
     refute_nil @cp.generate_first_little_ship_coordinate
   end
 
-  # def test_it_can_pick_a_second_coordinate
-  #   @cp.generate_first_coordinate
-  #   refute_nil @cp.generate_second_little_ship_coordinate
+
+  # def test_it_can_pick_two_coordinates
+  #
+  #   assert_equal ", ", @cp.create_little_ship_coordinates
+  # end
+  #
+  # def test_it_can_pick_three_coordinates
+  #
+  #   assert_equal " , ", @cp.create_big_ship_coordinates
   # end
 
-  def test_it_can_pick_two_coordinates
-
-    assert_equal ", ", @cp.create_little_ship_coordinates
-  end
-
-  def test_it_can_pick_three_coordinates
-
-    assert_equal " , ", @cp.create_big_ship_coordinates
-  end
-
   def test_it_can_pick_shot_location
-  
-    refute_nil @cp.fire_shot
+
+    refute_nil @cp.pick_shot
   end
 
 end
