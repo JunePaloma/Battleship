@@ -9,12 +9,7 @@ class TwoUnitShip
   end
 
 def hit(coordinate)
-  if coordinate == @coordinate1 ||coordinate == @coordinate2
     @hit+=1
-    print "You hit the ship!"
-  else
-    print "You did not hit the ship."
-  end
 end
 
   def destroyed?

@@ -17,7 +17,7 @@ class OpponentMap
 #   @board_array
 # end
 
-def make_array_of_unfired_spaces
+def make_array_of_unfired_spaces(coordinate = 0)
   @boardhash.keys.each do |coordinate|
     if @boardhash[coordinate] == "Open" #may need @boardhash
       @available << coordinate

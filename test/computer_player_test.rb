@@ -54,25 +54,20 @@ def test_it_can_generate_second_coordinate
   assert_equal "B4", @cp.second_coordinate_ls
 end
 
-  # def test_it_can_pick_two_coordinates
-  #
-  #   assert_equal ", ", @cp.create_little_ship_coordinates
-  # end
-  #
-  # def test_it_can_pick_three_coordinates
-  #
-  #   assert_equal " , ", @cp.create_big_ship_coordinates
-  # end
-
-  def test_it_can_pick_shot_location
-skip
-    refute_nil @cp.pick_shot
-  end
 
   def test_little_ship_is_on_board
-skip
     @cp.place_little_ship
-    assert_instance_of TwoUnitShip, @little_ship
+    assert_instance_of TwoUnitShip, @cp.little_ship
+  end
+
+  def test_big_ship_is_on_board
+    @cp.place_big_ship
+    assert_instance_of ThreeUnitShip, @cp.big_ship
+  end
+
+  def test_it_can_pick_shot_location
+
+    refute_nil @cp.pick_shot
   end
 
 end
