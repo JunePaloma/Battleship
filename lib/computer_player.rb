@@ -2,6 +2,7 @@ require './lib/three_unit_ship'
 require './lib/two_unit_ship'
 require './lib/ships'
 require './lib/game_board'
+require './lib/opponent_map'
 require 'pry'
 class ComputerPlayer
   attr_accessor :compboard,
@@ -14,6 +15,7 @@ class ComputerPlayer
 
   def initialize
     @compboard = GameBoard.new
+    @opp_map = OpponentMap.new
     @ls_starting_index = 0
     @bs_starting_index = 0
     @first_coordinate_ls = ""
@@ -80,9 +82,10 @@ class ComputerPlayer
   end
 
   def fire_shot
-    board = @compboard.board_array
+    @opp_map 
+
     board[pick_index_for_shot_coordinate]
-  
+
       binding.pry
   end
 
