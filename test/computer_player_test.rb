@@ -44,4 +44,9 @@ class ComputerPlayerTest < Minitest::Test
     assert_equal " , ", @cp.create_big_ship_coordinates
   end
 
+  def test_it_can_pick_shot_location
+  
+    refute_nil @cp.fire_shot
+  end
+
 end

@@ -10,6 +10,7 @@ class ComputerPlayer
                 :first_coodinate_bs
                 :second_coordinate_bs
                 :third_coordinate_bs
+                :shot
 
   def initialize
     @compboard = GameBoard.new
@@ -20,6 +21,7 @@ class ComputerPlayer
     @first_coodinate_bs = ""
     @second_coordinate_bs = ""
     @third_coordinate_bs = ""
+    @shot = fire_shot
 
   end
 
@@ -77,6 +79,16 @@ class ComputerPlayer
     @second_coordinate_bs = board_array[@bs_starting_index+8]
   end
 
+  def fire_shot
+    board = @compboard.board_array
+    board[pick_index_for_shot_coordinate]
+  
+      binding.pry
+  end
 
+  def pick_index_for_shot_coordinate
+    prng = Random.new
+    prng.rand(15)
+  end
 
 end
