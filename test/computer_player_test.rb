@@ -22,7 +22,7 @@ class ComputerPlayerTest < Minitest::Test
   end
 
   def test_it_can_pick_first_index
-    assert_instance_of Fixnum, @cp.pick_index_for_first_coordinate
+    assert_instance_of Fixnum, @cp.pick_index_for_first_little_ship_coordinate
   end
 
   def test_it_translates_index_into_coordinate
@@ -36,7 +36,12 @@ class ComputerPlayerTest < Minitest::Test
 
   def test_it_can_pick_two_coordinates
 
-    assert_equal "", @cp.create_little_ship_coordinates
+    assert_equal ", ", @cp.create_little_ship_coordinates
+  end
+
+  def test_it_can_pick_three_coordinates
+
+    assert_equal " , ", @cp.create_big_ship_coordinates
   end
 
 end

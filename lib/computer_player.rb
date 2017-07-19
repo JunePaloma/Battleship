@@ -26,17 +26,24 @@ class ComputerPlayer
   def create_little_ship_coordinates
     first_coordinate = generate_first_little_ship_coordinate
     second_coordinate = generate_second_little_ship_coordinate
-    #if first_coordinate[1].to_i > second_coordinate[0].to_i
+
     "#{generate_first_little_ship_coordinate}, #{generate_second_little_ship_coordinate}"
+  end
+
+  def create_big_ship_coordinates
+    first_coordinate = generate_first_big_ship_coordinate
+    second_coordinate = generate_second_big_ship_coordinate
+    third_coordinate = generate_third_big_ship_coordinate
+    "#{generate_first_big_ship_coordinate}, #{generate_second_big_ship_coordinate}, #{generate_third_big_ship_coordinate}"
   end
 
 
   def generate_first_little_ship_coordinate
     board_array = @compboard.make_array_of_empty_spaces
-    @first_coordinate_ls = board_array[pick_index_for_first_coordinate] #this returns a coordinate key
+    @first_coordinate_ls = board_array[pick_index_for_first_little_ship_coordinate] #this returns a coordinate key
   end
 
-  def pick_index_for_first_coordinate
+  def pick_index_for_first_little_ship_coordinate
     prng = Random.new
     @ls_starting_index = prng.rand(14)
   end
@@ -51,7 +58,8 @@ class ComputerPlayer
   end
 
   def generate_first_big_ship_coordinate
-    @first_coordinate_bs = generate_first_big_ship_coordinate
+    board_array = @compboard.make_array_of_empty_spaces
+    @first_coordinate_bs =  board_array[pick_index_for_big_ship_coordinate]
   end
 
   def pick_index_for_big_ship_coordinate
@@ -59,17 +67,15 @@ class ComputerPlayer
     @bs_starting_index = prng.rand(8)
   end
 
-  def generate_second_and_third_big_ship_coordinate
+  def generate_second_big_ship_coordinate
     board_array = @compboard.make_array_of_empty_spaces
     @second_coordinate_bs = board_array[@bs_starting_index+4]
-    @second_coordinate_bs = board_array[@bs_starting_index+8]
   end
 
-
-
-
-
-
+  def generate_third_big_ship_coordinate
+    board_array = @compboard.make_array_of_empty_spaces
+    @second_coordinate_bs = board_array[@bs_starting_index+8]
+  end
 
 
 
