@@ -24,6 +24,11 @@ class GameBoardTest < Minitest::Test
     assert_equal ["A1", "A2"], @new_board.make_array_of_occupied_spaces
   end
 
+  def test_ship_array_variable_working
+      @new_board.place_little_ship("A1", "A2")
+      assert_equal ["A1", "A2"], @new_board.ship_array
+  end
+
   def test_vertical_little_ship_placement_is_legal
 
       @new_board.place_little_ship("A1", "B1")
@@ -99,7 +104,7 @@ class GameBoardTest < Minitest::Test
   end
 
   def test_if_big_ship_fits
-  
+
     @new_board.place_little_ship("D2", "D3")
     assert_equal [], @new_board.find_overlapping_spaces("A1", "A2", "A3")
     assert_equal ["D2", "D3"], @new_board.find_overlapping_spaces("D1", "D2", "D3")
@@ -149,7 +154,7 @@ refute_instance_of ThreeUnitShip, @new_board.make_big_ship("D1","D2","D4")
 end
 
 def test_board_array
-  assert_equal ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"], @new_board.board_array
+  assert_equal ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"], @new_board.make_array_of_all_spaces
 end
 
 end
