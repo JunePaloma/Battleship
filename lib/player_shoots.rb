@@ -33,7 +33,5 @@ module PlayerShoots
             puts "Your shot missed; it's the computer's turn."
       end
     end
-      
-
 
 end

@@ -18,6 +18,7 @@ end
   def destroyed?
     if @hit == 2
       @destroyed = true
+      puts "Big ship destroyed!"
     end
   end
 

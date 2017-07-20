@@ -19,6 +19,7 @@ class ThreeUnitShip
   def destroyed?
     if @hit == 3
       @destroyed = true
+      puts "Big ship destroyed!"
     end
   end
 

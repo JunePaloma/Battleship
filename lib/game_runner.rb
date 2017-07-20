@@ -7,6 +7,7 @@ require "./lib/display_board"
 class GameRunner
   include DisplayBoard
   include PlayerShoots
+  include ComputerShoots
 
   attr_accessor :computer,
                 :player
@@ -54,21 +55,36 @@ class GameRunner
   draw_board(@player.playerboard.boardhash)
   puts "Your ships are at sea!"
 
-  shooting_sequence
+  game_play
+  end
 
+  def game_play
+    gameover = false
+    while gameover == false
+
+      if @computer.little_ship.destroyed? && @computer.big_ship.destroyed?
+      puts "You won! Game over."
+      gameover = true
+      elsif  @player.little_ship.destroyed? && @computer.big_ship.destroyed?
+      puts "You Lost! Game over."
+      else
+      shooting_sequence
+      end
+    end
   end
 
 def shooting_sequence
-  gameover = false
-    while gameover == false
+
     puts "Please enter a coordinate to shoot at in the form 'A1'."
     player_shot = gets.chomp
     shoot_at_little_ship(player_shot, @computer, @player)
-    shoot_at_big_ship(player_shot)
-    computer_shoots_at_player_little_ship
-    computer_shoots_at_player_big_ship
+    shoot_at_big_ship(player_shot, @computer, @player)
+    computer_shoots_at_player_little_ship(@computer, @player)
+    computer_shoots_at_player_big_ship(@computer, @player)
 
 end
+
+
 
 # def shoot_at_little_ship(player_shot, computer, player)
 #   shot = player_shot
@@ -86,50 +102,13 @@ end
 #     end
 #   end
 
-  def shoot_at_big_ship(player_shot, @computer, @player)
-    shot = player_shot
-    @computer.compboard.little_ship_array.each do |ship_coordinate|
-      if shot == ship_coordinate
-        puts "You landed a shot!"
-        @computer.little_ship.hits+=1
-    @player.little_ship_array.each do |ship_coordinate|
-          if shot == ship_coordinate
-            puts "You landed a shot!"
-         @computer.little_ship.hits+=1
-       else
-         puts "Your shot missed; it's the computer's turn."
-        end
-      end
-    end
-      end
 
-      def computer_shoots_at_player
-        shot = @computer.pick_shot
-        @computer.fire_shot
-        shot
-      end
-    #
-    def check_whether_computer_shot_landed
-        shot = computer_shoots_at_player
-        @player.little_ship_array.each do |ship_coordinate|
-          if shot == ship_coordinate
-        @player.littl_ship_array.each do |ship_coordinate|
-              if shot == ship_coordinate
-            end
-          end
-        end
-      end
-
-  end
-end
-
-
-  def player_shoots_at_computer
-  end
-
-  def check_if_player_shot_landed
-  end
-
+    #   def computer_shoots_at_player(computer, player)
+    #     shot = @computer.pick_shot
+    #     @computer.fire_shot
+    #     shot
+    #   end
+    # #
 
 
 end
