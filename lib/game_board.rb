@@ -4,7 +4,8 @@ require './lib/two_unit_ship'
 class GameBoard
   attr_accessor :boardhash,
                 :empty,
-                :ship_array
+                :little_ship_array,
+                :big_ship_array
 
   def initialize
     @boardhash = {"A1"=>"Open", "A2"=>"Open", "A3"=>"Open", "A4"=>"Open",
@@ -12,7 +13,8 @@ class GameBoard
       "C1"=>"Open", "C2"=>"Open", "C3"=>"Open", "C4"=>"Open",
       "D1"=>"Open", "D2"=>"Open", "D3"=>"Open","D4"=>"Open"}
     @empty = []
-    @ship_array = []
+    @little_ship_array = []
+    @big_ship_array = []
 
   end
 
@@ -28,8 +30,8 @@ end
 def place_little_ship(coordinate1, coordinate2)
       @boardhash[coordinate1] = "Occupied"
       @boardhash[coordinate2] = "Occupied"
-      @ship_array << coordinate1
-      @ship_array << coordinate2
+      @little_ship_array << coordinate1
+      @little_ship_array << coordinate2
 end
 
 def valid_little_ship_coordinates?(coordinate1, coordinate2)
@@ -83,9 +85,9 @@ def place_big_ship(coordinate1, coordinate2, coordinate3)
         @boardhash[coordinate1] = "Occupied"
         @boardhash[coordinate2] = "Occupied"
         @boardhash [coordinate3] = "Occupied"
-        @ship_array << coordinate1
-        @ship_array << coordinate2
-        @ship_array << coordinate3
+        @big_ship_array << coordinate1
+        @big_ship_array << coordinate2
+        @big_ship_array << coordinate3
 end
 
 def valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)

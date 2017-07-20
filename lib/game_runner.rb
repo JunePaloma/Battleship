@@ -38,8 +38,10 @@ class GameRunner
 
 def check_whether_computer_shot_landed
     shot = computer_shoots_at_player
-    @player.playerboard.
-    little_ship.coordinate1
+    @player.ship_array.each do |ship_coordinate|
+      if shot == ship_coordinate
+         
+
 end
 
 end

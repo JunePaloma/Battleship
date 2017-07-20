@@ -26,7 +26,7 @@ class GameBoardTest < Minitest::Test
 
   def test_ship_array_variable_working
       @new_board.place_little_ship("A1", "A2")
-      assert_equal ["A1", "A2"], @new_board.ship_array
+      assert_equal ["A1", "A2"], @new_board.little_ship_array
   end
 
   def test_vertical_little_ship_placement_is_legal
