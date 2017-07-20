@@ -1,3 +1,4 @@
+require 'pry'
 class TwoUnitShip
   attr_accessor :coordinate1,
                 :coordinate2,
@@ -11,14 +12,17 @@ class TwoUnitShip
     @destroyed = false
   end
 
-def hit
+def hit(coordinate)
+  if coordinate == @coordinate1 || coordinate == @coordinate2
     @hits+=1
+  ship_destroyed
+  end
 end
 
-  def destroyed?
+  def ship_destroyed
     if @hit == 2
+      puts "Little ship destroyed!"
       @destroyed = true
-      puts "Big ship destroyed!"
     end
   end
 

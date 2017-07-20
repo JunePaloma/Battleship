@@ -14,27 +14,27 @@
       <img src="./assets/0.10.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-07-19T23:20:19-06:00">2017-07-19T23:20:19-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-07-20T09:47:50-06:00">2017-07-20T09:47:50-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">92.97%</span></span>
+    (<span class="covered_percent"><span class="green">90.37%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         13.94
+         13.57
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>3</b> files in total.
-    <b>128</b> relevant lines. 
-    <span class="green"><b>119</b> lines covered</span> and
-    <span class="red"><b>9</b> lines missed </span>
+    <b>135</b> relevant lines. 
+    <span class="green"><b>122</b> lines covered</span> and
+    <span class="red"><b>13</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,32 +52,32 @@
       
       <tr>
         <td class="strong"><a href="#f354a5d683955fe7226b2e8eab181e982872609a" class="src_link" title="lib/game_board.rb">lib/game_board.rb</a></td>
-        <td class="green strong">98.04 %</td>
-        <td>182</td>
+        <td class="green strong">99.03 %</td>
+        <td>183</td>
+        <td>103</td>
         <td>102</td>
-        <td>100</td>
-        <td>2</td>
-        <td>17.3</td>
+        <td>1</td>
+        <td>17.6</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#2a599223ebd4b3323954dd807a1e558db17925d9" class="src_link" title="lib/three_unit_ship.rb">lib/three_unit_ship.rb</a></td>
-        <td class="red strong">71.43 %</td>
-        <td>25</td>
-        <td>14</td>
+        <td class="red strong">62.5 %</td>
+        <td>29</td>
+        <td>16</td>
         <td>10</td>
-        <td>4</td>
-        <td>0.7</td>
+        <td>6</td>
+        <td>0.6</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#a392e14a5adbeef6ef7decc49434ccf6efdae938" class="src_link" title="lib/two_unit_ship.rb">lib/two_unit_ship.rb</a></td>
-        <td class="red strong">75.0 %</td>
-        <td>24</td>
-        <td>12</td>
-        <td>9</td>
-        <td>3</td>
-        <td>0.8</td>
+        <td class="red strong">62.5 %</td>
+        <td>29</td>
+        <td>16</td>
+        <td>10</td>
+        <td>6</td>
+        <td>0.6</td>
       </tr>
       
     </tbody>
@@ -99,11 +99,11 @@
         <div class="source_table" id="f354a5d683955fe7226b2e8eab181e982872609a">
   <div class="header">
     <h3>lib/game_board.rb</h3>
-    <h4><span class="green">98.04 %</span> covered</h4>
+    <h4><span class="green">99.03 %</span> covered</h4>
     <div>
-      <b>102</b> relevant lines. 
-      <span class="green"><b>100</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <b>103</b> relevant lines. 
+      <span class="green"><b>102</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -584,14 +584,14 @@
           <code class="ruby">def make_big_ship(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="80">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="80">
+          <span class="hits">2</span>
           
           <code class="ruby">  validity = valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="81">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="81">
+          <span class="hits">2</span>
           
           <code class="ruby">  if validity == true &amp;&amp; will_ship_fit?(coordinate1, coordinate2, coordinate3) == true</code>
         </li>
@@ -599,25 +599,25 @@
         <li class="covered" data-hits="1" data-linenumber="82">
           <span class="hits">1</span>
           
-          <code class="ruby">  big_ship = ThreeUnitShip.new(coordinate1, coordinate2, coordinate3)</code>
+          <code class="ruby">    place_big_ship(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
-          <code class="ruby">  place_big_ship(coordinate1, coordinate2, coordinate3)</code>
+          <code class="ruby">    big_ship = ThreeUnitShip.new(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="84">
           
           
-          <code class="ruby">else</code>
+          <code class="ruby">  else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="85">
+        <li class="covered" data-hits="1" data-linenumber="85">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  puts &quot;Invalid coordinates.&quot;</code>
+          <code class="ruby">    puts &quot;Invalid coordinates.&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="86">
@@ -644,376 +644,376 @@
           <code class="ruby">def place_big_ship(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="90">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="90">
           
-          <code class="ruby">        @boardhash[coordinate1] = &quot;Occupied&quot;</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="91">
           <span class="hits">1</span>
           
-          <code class="ruby">        @boardhash[coordinate2] = &quot;Occupied&quot;</code>
+          <code class="ruby">  @boardhash[coordinate1] = &quot;Occupied&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="92">
           <span class="hits">1</span>
           
-          <code class="ruby">        @boardhash [coordinate3] = &quot;Occupied&quot;</code>
+          <code class="ruby">  @boardhash[coordinate2] = &quot;Occupied&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="93">
           <span class="hits">1</span>
           
-          <code class="ruby">        @big_ship_array &lt;&lt; coordinate1</code>
+          <code class="ruby">  @boardhash[coordinate3] = &quot;Occupied&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="94">
           <span class="hits">1</span>
           
-          <code class="ruby">        @big_ship_array &lt;&lt; coordinate2</code>
+          <code class="ruby">  @big_ship_array &lt;&lt; coordinate1</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="95">
           <span class="hits">1</span>
           
-          <code class="ruby">        @big_ship_array &lt;&lt; coordinate3</code>
+          <code class="ruby">  @big_ship_array &lt;&lt; coordinate2</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="96">
+        <li class="covered" data-hits="1" data-linenumber="96">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">end</code>
+          <code class="ruby">  @big_ship_array &lt;&lt; coordinate3</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="97">
           
           
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="98">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="98">
+        <li class="covered" data-hits="1" data-linenumber="99">
           <span class="hits">1</span>
           
           <code class="ruby">def valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="99">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="100">
+          <span class="hits">8</span>
           
           <code class="ruby">  if big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3) == true</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="100">
+        <li class="covered" data-hits="1" data-linenumber="101">
           <span class="hits">1</span>
           
           <code class="ruby">    return true</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="101">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="102">
+          <span class="hits">7</span>
           
           <code class="ruby">  elsif big_ship_continuous?(coordinate1, coordinate2, coordinate3) == true &amp;&amp; big_ship_runs_off_board?(coordinate1) == false</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="102">
+        <li class="covered" data-hits="2" data-linenumber="103">
           <span class="hits">2</span>
           
           <code class="ruby">    return true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+        <li class="never" data-hits="" data-linenumber="104">
           
           
           <code class="ruby">  else</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="104">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="105">
+          <span class="hits">5</span>
           
           <code class="ruby">    return false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="105">
-          
-          
-          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="106">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="107">
           
           
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="108">
+        <li class="covered" data-hits="1" data-linenumber="109">
           <span class="hits">1</span>
           
           <code class="ruby">def will_ship_fit?(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="109">
+        <li class="covered" data-hits="3" data-linenumber="110">
           <span class="hits">3</span>
           
           <code class="ruby">  if find_overlapping_spaces(coordinate1, coordinate2, coordinate3) == []</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="110">
+        <li class="covered" data-hits="2" data-linenumber="111">
           <span class="hits">2</span>
           
           <code class="ruby">return true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="111">
+        <li class="never" data-hits="" data-linenumber="112">
           
           
           <code class="ruby">  else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="112">
+        <li class="never" data-hits="" data-linenumber="113">
           
           
           <code class="ruby">    #print &quot;The following coordinates are already occupied {#{check_if_big_ship_fits}}. Choose again.&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="113">
+        <li class="covered" data-hits="1" data-linenumber="114">
           <span class="hits">1</span>
           
           <code class="ruby">    return false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="114">
-          
-          
-          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="115">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="116">
           
           
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="117">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="117">
+        <li class="covered" data-hits="1" data-linenumber="118">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_overlapping_spaces(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="118">
+        <li class="covered" data-hits="5" data-linenumber="119">
           <span class="hits">5</span>
           
           <code class="ruby">    make_array_of_occupied_spaces.find_all do |coordinate|</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="119">
+        <li class="covered" data-hits="8" data-linenumber="120">
           <span class="hits">8</span>
           
           <code class="ruby">      coordinate == coordinate1 || coordinate == coordinate2 || coordinate == coordinate3</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="121">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="121">
+        <li class="never" data-hits="" data-linenumber="122">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="122">
+        <li class="never" data-hits="" data-linenumber="123">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="123">
+        <li class="covered" data-hits="1" data-linenumber="124">
           <span class="hits">1</span>
           
           <code class="ruby">def big_ship_vertical_valid?(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="124">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="125">
+          <span class="hits">11</span>
           
           <code class="ruby">  board = make_array_of_all_spaces</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="125">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="126">
+          <span class="hits">11</span>
           
           <code class="ruby">  if board.index(coordinate3) - board.index(coordinate1) == 8</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="126">
+        <li class="covered" data-hits="2" data-linenumber="127">
           <span class="hits">2</span>
           
           <code class="ruby">    return true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="127">
+        <li class="never" data-hits="" data-linenumber="128">
           
           
           <code class="ruby">  else</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="128">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="9" data-linenumber="129">
+          <span class="hits">9</span>
           
           <code class="ruby">    return false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="129">
-          
-          
-          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="130">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="131">
           
           
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="132">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="132">
+        <li class="covered" data-hits="1" data-linenumber="133">
           <span class="hits">1</span>
           
           <code class="ruby">def big_ship_continuous?(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="133">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="134">
+          <span class="hits">13</span>
           
           <code class="ruby">  board = make_array_of_all_spaces</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="134">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="135">
+          <span class="hits">13</span>
           
           <code class="ruby">  if board.index(coordinate2) - board.index(coordinate1) != 1</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="135">
+        <li class="covered" data-hits="5" data-linenumber="136">
           <span class="hits">5</span>
           
           <code class="ruby">    return false</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="136">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="137">
+          <span class="hits">8</span>
           
           <code class="ruby">  elsif board.index(coordinate3) - board.index(coordinate2) != 1</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="137">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="138">
+          <span class="hits">5</span>
           
           <code class="ruby">    return false</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="138">
+        <li class="never" data-hits="" data-linenumber="139">
           
           
           <code class="ruby">  else</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="139">
+        <li class="covered" data-hits="3" data-linenumber="140">
           <span class="hits">3</span>
           
           <code class="ruby">    return true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="140">
+        <li class="never" data-hits="" data-linenumber="141">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="141">
+        <li class="never" data-hits="" data-linenumber="142">
           
           
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="142">
+        <li class="never" data-hits="" data-linenumber="143">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="143">
+        <li class="covered" data-hits="1" data-linenumber="144">
           <span class="hits">1</span>
           
           <code class="ruby">def big_ship_runs_off_board?(coordinate1)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="144">
-          <span class="hits">4</span>
-          
-          <code class="ruby">board = make_array_of_all_spaces</code>
-        </li>
-      
         <li class="covered" data-hits="4" data-linenumber="145">
           <span class="hits">4</span>
           
-          <code class="ruby">if board.index(coordinate1) == 2 || board.index(coordinate1) == 6 || board.index(coordinate1) == 10 || board.index(coordinate1) == 15</code>
+          <code class="ruby">  board = make_array_of_all_spaces</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="146">
+        <li class="covered" data-hits="4" data-linenumber="146">
+          <span class="hits">4</span>
+          
+          <code class="ruby">  if board.index(coordinate1) == 2 || board.index(coordinate1) == 6 || board.index(coordinate1) == 10 || board.index(coordinate1) == 15</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="147">
           <span class="hits">1</span>
           
-          <code class="ruby">  return true</code>
+          <code class="ruby">    return true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="147">
+        <li class="never" data-hits="" data-linenumber="148">
           
           
-          <code class="ruby">else</code>
+          <code class="ruby">  else</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="148">
+        <li class="covered" data-hits="3" data-linenumber="149">
           <span class="hits">3</span>
           
-          <code class="ruby">  return false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="149">
-          
-          
-          <code class="ruby">end</code>
+          <code class="ruby">    return false</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="150">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="151">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="152">
@@ -1022,52 +1022,52 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="153">
+        <li class="never" data-hits="" data-linenumber="153">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="154">
           <span class="hits">1</span>
           
           <code class="ruby">def make_array_of_all_spaces</code>
         </li>
       
-        <li class="covered" data-hits="60" data-linenumber="154">
-          <span class="hits">60</span>
+        <li class="covered" data-hits="62" data-linenumber="155">
+          <span class="hits">62</span>
           
           <code class="ruby">  board_array = []</code>
         </li>
       
-        <li class="covered" data-hits="60" data-linenumber="155">
-          <span class="hits">60</span>
+        <li class="covered" data-hits="62" data-linenumber="156">
+          <span class="hits">62</span>
           
           <code class="ruby">  @boardhash.keys.each do |coordinate|</code>
         </li>
       
-        <li class="covered" data-hits="960" data-linenumber="156">
-          <span class="hits">960</span>
+        <li class="covered" data-hits="992" data-linenumber="157">
+          <span class="hits">992</span>
           
           <code class="ruby">    board_array &lt;&lt; coordinate</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="157">
+        <li class="never" data-hits="" data-linenumber="158">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="60" data-linenumber="158">
-          <span class="hits">60</span>
+        <li class="covered" data-hits="62" data-linenumber="159">
+          <span class="hits">62</span>
           
           <code class="ruby">  board_array</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="159">
-          
-          
-          <code class="ruby">end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="160">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="161">
@@ -1076,127 +1076,133 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="162">
+        <li class="never" data-hits="" data-linenumber="162">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="163">
           <span class="hits">1</span>
           
           <code class="ruby">def make_array_of_empty_spaces</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="163">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
         <li class="covered" data-hits="1" data-linenumber="164">
           <span class="hits">1</span>
           
-          <code class="ruby">  @boardhash.keys.each do |coordinate|</code>
+          <code class="ruby">  @empty = []</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="165">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="1" data-linenumber="165">
+          <span class="hits">1</span>
           
-          <code class="ruby">    if boardhash[coordinate] == &quot;Open&quot;</code>
+          <code class="ruby">  @boardhash.keys.each do |coordinate|</code>
         </li>
       
         <li class="covered" data-hits="16" data-linenumber="166">
           <span class="hits">16</span>
           
-          <code class="ruby">      @empty &lt;&lt; coordinate</code>
+          <code class="ruby">    if boardhash[coordinate] == &quot;Open&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="167">
+        <li class="covered" data-hits="16" data-linenumber="167">
+          <span class="hits">16</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      @empty &lt;&lt; coordinate</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="168">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="169">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="169">
+        <li class="covered" data-hits="1" data-linenumber="170">
           <span class="hits">1</span>
           
           <code class="ruby">  @empty</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="170">
+        <li class="never" data-hits="" data-linenumber="171">
           
           
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="171">
+        <li class="never" data-hits="" data-linenumber="172">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="172">
+        <li class="covered" data-hits="1" data-linenumber="173">
           <span class="hits">1</span>
           
           <code class="ruby">def make_array_of_occupied_spaces</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="173">
+        <li class="covered" data-hits="6" data-linenumber="174">
           <span class="hits">6</span>
           
           <code class="ruby">  occupied = []</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="174">
+        <li class="covered" data-hits="6" data-linenumber="175">
           <span class="hits">6</span>
           
           <code class="ruby">  @boardhash.keys.each do |coordinate|</code>
         </li>
       
-        <li class="covered" data-hits="96" data-linenumber="175">
+        <li class="covered" data-hits="96" data-linenumber="176">
           <span class="hits">96</span>
           
           <code class="ruby">    if boardhash[coordinate] == &quot;Occupied&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="176">
+        <li class="covered" data-hits="10" data-linenumber="177">
           <span class="hits">10</span>
           
           <code class="ruby">      occupied &lt;&lt; coordinate</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="177">
+        <li class="never" data-hits="" data-linenumber="178">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="178">
+        <li class="never" data-hits="" data-linenumber="179">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="179">
+        <li class="covered" data-hits="6" data-linenumber="180">
           <span class="hits">6</span>
           
           <code class="ruby">  occupied</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="180">
+        <li class="never" data-hits="" data-linenumber="181">
           
           
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="181">
+        <li class="never" data-hits="" data-linenumber="182">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="182">
+        <li class="never" data-hits="" data-linenumber="183">
           
           
           <code class="ruby">end</code>
@@ -1210,11 +1216,11 @@
         <div class="source_table" id="2a599223ebd4b3323954dd807a1e558db17925d9">
   <div class="header">
     <h3>lib/three_unit_ship.rb</h3>
-    <h4><span class="red">71.43 %</span> covered</h4>
+    <h4><span class="red">62.5 %</span> covered</h4>
     <div>
-      <b>14</b> relevant lines. 
+      <b>16</b> relevant lines. 
       <span class="green"><b>10</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <span class="red"><b>6</b> lines missed.</span>
     </div>
   </div>
   
@@ -1230,218 +1236,49 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  attr_accessor :coordinates</code>
+          <code class="ruby">  attr_accessor :coordinates,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="3">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def initialize(coordinate1, coordinate2, coordinate3)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @coordinate1 = coordinate1</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @coordinate2 = coordinate2</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @coordinate3 = coordinate3</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @hit = 0</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @destroyed = false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def hit(coordinate)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="14">
-          
-          
-          <code class="ruby">    if coordinate == @coordinate1 ||coordinate == @coordinate3 ||coordinate == @coordinate2</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="15">
-          
-          
-          <code class="ruby">    @hit+=1</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def destroyed?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
-          
-          <code class="ruby">    if @hit == 3</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="21">
-          
-          
-          <code class="ruby">      @destroyed = true</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="25">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-</div>
-
-      
-        <div class="source_table" id="a392e14a5adbeef6ef7decc49434ccf6efdae938">
-  <div class="header">
-    <h3>lib/two_unit_ship.rb</h3>
-    <h4><span class="red">75.0 %</span> covered</h4>
-    <div>
-      <b>12</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
-    </div>
-  </div>
-  
-  <pre>
-    <ol>
-      
-        <li class="covered" data-hits="1" data-linenumber="1">
-          <span class="hits">1</span>
-          
-          <code class="ruby">class TwoUnitShip</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="2">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  attr_accessor :coordinate1,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="3">
-          
-          
-          <code class="ruby">                :coordinate2,</code>
+          <code class="ruby">                :destroyed,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
           
           
-          <code class="ruby">                :hits,</code>
+          <code class="ruby">                :hits</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
           
           
-          <code class="ruby">                :destroyed</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  def initialize(coordinate1, coordinate2, coordinate3)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">  def initialize(coordinate1, coordinate2)</code>
+          <code class="ruby">    @coordinate1 = coordinate1</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">    @coordinate1 = coordinate1</code>
+          <code class="ruby">    @coordinate2 = coordinate2</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">    @coordinate2 = coordinate2</code>
+          <code class="ruby">    @coordinate3 = coordinate3</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
@@ -1468,67 +1305,290 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="14">
           
-          <code class="ruby">def hit</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def hit(coordinate)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">    if coordinate == @coordinate1 ||coordinate == @coordinate3 ||coordinate == @coordinate2</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="17">
           
           
           <code class="ruby">    @hits+=1</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="missed" data-hits="0" data-linenumber="18">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">    ship_destroyed</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def destroyed?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="19">
-          
-          
-          <code class="ruby">    if @hit == 2</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
-          
-          <code class="ruby">      @destroyed = true</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def ship_destroyed</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="23">
+          
+          
+          <code class="ruby">    if @hits == 3</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="24">
+          
+          
+          <code class="ruby">      @destroyed = true</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">      puts &quot;Big ship destroyed!&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="a392e14a5adbeef6ef7decc49434ccf6efdae938">
+  <div class="header">
+    <h3>lib/two_unit_ship.rb</h3>
+    <h4><span class="red">62.5 %</span> covered</h4>
+    <div>
+      <b>16</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>6</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;pry&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class TwoUnitShip</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  attr_accessor :coordinate1,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">                :coordinate2,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">                :hits,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">                :destroyed</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def initialize(coordinate1, coordinate2)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @coordinate1 = coordinate1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @coordinate2 = coordinate2</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @hits = 0</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @destroyed = false</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">def hit(coordinate)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">  if coordinate == @coordinate1 || coordinate == @coordinate2</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="17">
+          
+          
+          <code class="ruby">    @hits+=1</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="18">
+          
+          
+          <code class="ruby">  ship_destroyed</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def ship_destroyed</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="23">
+          
+          
+          <code class="ruby">    if @hit == 2</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="24">
+          
+          
+          <code class="ruby">      puts &quot;Little ship destroyed!&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">      @destroyed = true</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">end</code>

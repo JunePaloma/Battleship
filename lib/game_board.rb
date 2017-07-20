@@ -87,7 +87,7 @@ def make_big_ship(coordinate1, coordinate2, coordinate3)
 end
 
 def place_big_ship(coordinate1, coordinate2, coordinate3)
-  binding.pry
+
   @boardhash[coordinate1] = "Occupied"
   @boardhash[coordinate2] = "Occupied"
   @boardhash[coordinate3] = "Occupied"
