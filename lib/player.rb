@@ -6,8 +6,8 @@ require 'pry'
 
 class Player
   attr_accessor :playerboard,
-              :big_ship,
-              :little_ship
+                :big_ship,
+                :little_ship
 
   def initialize
     @playerboard = GameBoard.new

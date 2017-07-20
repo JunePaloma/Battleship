@@ -24,6 +24,8 @@ def make_little_ship(coordinate1, coordinate2)
   if valid_little_ship_coordinates?(coordinate1, coordinate2) == true
     place_little_ship(coordinate1, coordinate2)
     little_ship = TwoUnitShip.new(coordinate1, coordinate2)
+  else
+    puts "Invalid coordinates."
   end
 end
 
@@ -78,6 +80,9 @@ def make_big_ship(coordinate1, coordinate2, coordinate3)
   validity = valid_big_ship_coordinates?(coordinate1, coordinate2, coordinate3)
   if validity == true && will_ship_fit?(coordinate1, coordinate2, coordinate3) == true
   big_ship = ThreeUnitShip.new(coordinate1, coordinate2, coordinate3)
+  place_big_ship(coordinate1, coordinate2, coordinate3)
+else
+  puts "Invalid coordinates."
   end
 end
 

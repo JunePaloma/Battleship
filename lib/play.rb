@@ -20,4 +20,4 @@ while user_is_silent
   end
 end
 
-start_game = GameRunner.new
+start_game = GameRunner.new.start_playing
