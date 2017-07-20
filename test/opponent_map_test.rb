@@ -22,4 +22,8 @@ def test_mark_hits
   assert_equal "Fired", @map.mark_hits("A3")
 end
 
+def test_play_map_access_works
+  asser_equal [], @map.find_out_if_shot_hit("B2")
+end
+
 end

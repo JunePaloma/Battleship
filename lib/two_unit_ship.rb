@@ -1,15 +1,18 @@
 class TwoUnitShip
-  attr_accessor :coordinates
+  attr_accessor :coordinate1,
+                :coordinate2,
+                :hits,
+                :destroyed
 
   def initialize(coordinate1, coordinate2)
     @coordinate1 = coordinate1
     @coordinate2 = coordinate2
-    @hit = 0
+    @hits = 0
     @destroyed = false
   end
 
 def hit
-    @hit+=1
+    @hits+=1
 end
 
   def destroyed?

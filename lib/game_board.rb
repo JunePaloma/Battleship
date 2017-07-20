@@ -3,7 +3,8 @@ require './lib/two_unit_ship'
 
 class GameBoard
   attr_accessor :boardhash,
-                :empty
+                :empty,
+                :occupied
 
   def initialize
     @boardhash = {"A1"=>"Open", "A2"=>"Open", "A3"=>"Open", "A4"=>"Open",
@@ -11,6 +12,7 @@ class GameBoard
       "C1"=>"Open", "C2"=>"Open", "C3"=>"Open", "C4"=>"Open",
       "D1"=>"Open", "D2"=>"Open", "D3"=>"Open","D4"=>"Open"}
     @empty = []
+    @occupied = []
 
   end
 
@@ -156,13 +158,13 @@ def make_array_of_empty_spaces
 end
 
 def make_array_of_occupied_spaces
-  occupied = []
+  # occupied = []
   @boardhash.keys.each do |coordinate|
     if boardhash[coordinate] == "Occupied"
-      occupied << coordinate
+      @occupied << coordinate
     end
   end
-  occupied
+  @occupied
 end
 
 end
