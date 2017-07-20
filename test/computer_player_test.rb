@@ -14,8 +14,6 @@ class ComputerPlayerTest < Minitest::Test
     @cp = ComputerPlayer.new
   end
 
-
-
   def test_it_exists
     assert_instance_of ComputerPlayer, @cp
   end
