@@ -1,6 +1,6 @@
 require './lib/computer_player'
 require './lib/game_board'
-require './lib/opponent_map'
+require './lib/player'
 
 class GameRunner
   attr_accessor :computer,
@@ -9,10 +9,13 @@ class GameRunner
   def intialize
     @computer = ComputerPlayer.new
     @player = Player.new
+    @display = ?
   end
 
+
+
   def computer_places_little_ship
-    @computer.
+    @computer
   end
 
   def computer_places_big_ship
@@ -35,13 +38,16 @@ class GameRunner
     @computer.fire_shot
     shot
   end
-
-def check_whether_computer_shot_landed
-    shot = computer_shoots_at_player
-    @player.ship_array.each do |ship_coordinate|
-      if shot == ship_coordinate
-         
-
-end
+#
+# def check_whether_computer_shot_landed
+#     shot = computer_shoots_at_player
+#     @player.little_ship_array.each do |ship_coordinate|
+#       if shot == ship_coordinate
+#     @player.littl_ship_array.each do |ship_coordinate|
+#           if shot == ship_coordinate
+#         end
+#       end
+#     end
+#   end
 
 end

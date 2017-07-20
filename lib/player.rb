@@ -3,11 +3,12 @@
 # require './lib/ships'
 require './lib/game_runner'
 require 'pry'
-attr_accessor :playerboard,
-            :big_ship,
-            :little_ship,
 
 class Player
+  attr_accessor :playerboard,
+              :big_ship,
+              :little_ship
+
   def initialize
     @playerboard = GameBoard.new
     # @computer_map = OpponentMap.new
