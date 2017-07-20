@@ -83,6 +83,7 @@ class ComputerPlayer
 
   def generate_first_big_ship_coordinate
     board_array = @compboard.make_array_of_empty_spaces
+    binding.pry
     @first_coordinate_bs =  board_array[pick_index_for_big_ship_coordinate]
   end
 
@@ -98,7 +99,8 @@ class ComputerPlayer
 
   def place_big_ship
     create_big_ship_coordinates
-  @big_ship = @compboard.make_big_ship(@first_coordinate_bs, @second_coordinate_bs, @third_coordinate_bs)
+    binding.pry
+    @big_ship = @compboard.make_big_ship(@first_coordinate_bs, @second_coordinate_bs, @third_coordinate_bs)
   end
 
   def pick_index_for_shot_coordinate

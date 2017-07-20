@@ -2,7 +2,9 @@ require './lib/computer_player'
 require './lib/game_board'
 require './lib/player'
 require 'pry'
-require "./lib/display_board"
+require './lib/display_board'
+require './lib/computer_shoots'
+require './lib/player_shoots'
 
 class GameRunner
   include DisplayBoard
@@ -61,11 +63,14 @@ class GameRunner
   def game_play
     gameover = false
     while gameover == false
+      binding.pry
+      if @computer.little_ship.destroyed == true && @computer.big_ship.destroyed == true
+        binding.pry
 
-      if @computer.little_ship.destroyed? && @computer.big_ship.destroyed?
       puts "You won! Game over."
       gameover = true
-      elsif  @player.little_ship.destroyed? && @computer.big_ship.destroyed?
+    elsif  @player.little_ship.destroyed == true && @computer.big_ship.destroyed == true
+      binding.pry
       puts "You Lost! Game over."
       else
       shooting_sequence
@@ -84,31 +89,6 @@ def shooting_sequence
 
 end
 
-
-
-# def shoot_at_little_ship(player_shot, computer, player)
-#   shot = player_shot
-#   computer.compboard.little_ship_array.each do |ship_coordinate|
-#     if shot == ship_coordinate
-#       puts "You landed a shot!"
-#       computer.little_ship.hits+=1
-#   player.little_ship_array.each do |ship_coordinate|
-#         if shot == ship_coordinate
-#           puts "You landed a shot!"
-#        computer.little_ship.hits+=1
-#      else
-#        puts "Your shot missed; it's the computer's turn."
-#       end
-#     end
-#   end
-
-
-    #   def computer_shoots_at_player(computer, player)
-    #     shot = @computer.pick_shot
-    #     @computer.fire_shot
-    #     shot
-    #   end
-    # #
 
 
 end

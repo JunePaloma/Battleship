@@ -13,7 +13,6 @@ module PlayerShoots
          computer.little_ship.hits+=1
        else
          puts "Your shot missed; it's the computer's turn."
-        end
       end
     end
 

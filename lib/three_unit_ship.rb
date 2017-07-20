@@ -1,5 +1,5 @@
 class ThreeUnitShip
-  attr_accessor :coordinates
+  attr_accessor :coordinates, :destroyed
 
   def initialize(coordinate1, coordinate2, coordinate3)
     @coordinate1 = coordinate1
@@ -16,7 +16,7 @@ class ThreeUnitShip
     end
   end
 
-  def destroyed?
+  def ship_destroyed?
     if @hit == 3
       @destroyed = true
       puts "Big ship destroyed!"
