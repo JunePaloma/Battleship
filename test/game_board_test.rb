@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 gem 'minitest'
 require './lib/game_board'
 require 'minitest/autorun'

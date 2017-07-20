@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 gem 'minitest'
 require './lib/three_unit_ship'
 require 'minitest/autorun'

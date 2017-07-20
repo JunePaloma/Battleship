@@ -5,7 +5,8 @@ require 'pry'
 require "./lib/display_board"
 
 class GameRunner
-  # include DisplayBoard
+  include DisplayBoard
+  include PlayerShoots
 
   attr_accessor :computer,
                 :player
@@ -50,35 +51,78 @@ class GameRunner
 
   @player.playerboard.make_big_ship(player_big_ship_coordinate_1, player_big_ship_coordinate_2, player_big_ship_coordinate_3)
 
-  # gameover = false
-  #
-  #   while gameover == false
+  draw_board(@player.playerboard.boardhash)
+  puts "Your ships are at sea!"
 
-  board = DisplayBoard.new(@player)
-  puts board.draw_board
-  binding.pry
+  shooting_sequence
 
-
-    #   @player.playerboard.boardhash.each do |key, value|
-    #     if value == "Occupied"
-    #       print "x"
-    #     end
-    #   end
-    # # end
   end
 
-  def computer_places_little_ship
-    @computer
-  end
+def shooting_sequence
+  gameover = false
+    while gameover == false
+    puts "Please enter a coordinate to shoot at in the form 'A1'."
+    player_shot = gets.chomp
+    shoot_at_little_ship(player_shot, @computer, @player)
+    shoot_at_big_ship(player_shot)
+    computer_shoots_at_player_little_ship
+    computer_shoots_at_player_big_ship
 
-  def computer_places_big_ship
-  end
+end
 
-  def player_places_little_ship
-  end
+# def shoot_at_little_ship(player_shot, computer, player)
+#   shot = player_shot
+#   computer.compboard.little_ship_array.each do |ship_coordinate|
+#     if shot == ship_coordinate
+#       puts "You landed a shot!"
+#       computer.little_ship.hits+=1
+#   player.little_ship_array.each do |ship_coordinate|
+#         if shot == ship_coordinate
+#           puts "You landed a shot!"
+#        computer.little_ship.hits+=1
+#      else
+#        puts "Your shot missed; it's the computer's turn."
+#       end
+#     end
+#   end
 
-  def player_places_big_ship
+  def shoot_at_big_ship(player_shot, @computer, @player)
+    shot = player_shot
+    @computer.compboard.little_ship_array.each do |ship_coordinate|
+      if shot == ship_coordinate
+        puts "You landed a shot!"
+        @computer.little_ship.hits+=1
+    @player.little_ship_array.each do |ship_coordinate|
+          if shot == ship_coordinate
+            puts "You landed a shot!"
+         @computer.little_ship.hits+=1
+       else
+         puts "Your shot missed; it's the computer's turn."
+        end
+      end
+    end
+      end
+
+      def computer_shoots_at_player
+        shot = @computer.pick_shot
+        @computer.fire_shot
+        shot
+      end
+    #
+    def check_whether_computer_shot_landed
+        shot = computer_shoots_at_player
+        @player.little_ship_array.each do |ship_coordinate|
+          if shot == ship_coordinate
+        @player.littl_ship_array.each do |ship_coordinate|
+              if shot == ship_coordinate
+            end
+          end
+        end
+      end
+
   end
+end
+
 
   def player_shoots_at_computer
   end
@@ -86,21 +130,6 @@ class GameRunner
   def check_if_player_shot_landed
   end
 
-  def computer_shoots_at_player
-    shot = @computer.pick_shot
-    @computer.fire_shot
-    shot
-  end
-#
-# def check_whether_computer_shot_landed
-#     shot = computer_shoots_at_player
-#     @player.little_ship_array.each do |ship_coordinate|
-#       if shot == ship_coordinate
-#     @player.littl_ship_array.each do |ship_coordinate|
-#           if shot == ship_coordinate
-#         end
-#       end
-#     end
-#   end
+
 
 end

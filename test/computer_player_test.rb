@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 gem 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
@@ -70,7 +72,7 @@ end
 
   def test_it_can_fire_shots
     @cp.fire_shot("A4")
-  
+
     assert_equal "Fired", @cp.opp_map.boardhash["A4"]
   end
   # end this test is for hard cording purposes

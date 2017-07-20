@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 gem 'minitest'
 require './lib/computer_player'
 require './lib/opponent_map'

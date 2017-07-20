@@ -1,15 +1,12 @@
-require './lib/game_runner'
+# require './lib/game_runner'
 require 'pry'
-class DisplayBoard
+module DisplayBoard
 
-def initialize(player)
-  @board = player.playerboard.boardhash
-end
-  def draw_board
+  def draw_board(board)
         ('A'..'D').each do |letter|
             (1..4).each do |i|
-                @board["#{letter}#{i}"] = "*"
-                  print @board["#{letter}#{i}"]
+                board["#{letter}#{i}"] = "*"
+                  print board["#{letter}#{i}"]
               end
               puts
           end
